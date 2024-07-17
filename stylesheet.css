@@ -58,6 +58,7 @@ nav {
     align-items: flex-start;
     color: black;
     padding: 0 2%;
+    text-align: justified;
 }
 
 .coluna_esquerda h2 {
