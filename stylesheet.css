@@ -138,11 +138,12 @@ nav {
 }
 
 .form_container input {
-    margin: 2% 2% 2% 2%;
+    margin: 1% 2% 8% 2%;
 }
 
 .form_container p {
-    text-align: center;   
+    text-align: center;
+    padding-top: 3%;
 }
 
 .form_container h2 {
