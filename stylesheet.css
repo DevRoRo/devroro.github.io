@@ -68,12 +68,12 @@
 }
 
 @keyframes troca_background {
-    from {background-image: url(imgs/background.webp);}
-    to {background-image: url(imgs/background2.webp);}
+    from {background-image: url(imgs/background.png);}
+    to {background-image: url(imgs/background2.png);}
 }
 
 .introducao_background::before{
-    background-image: url(imgs/background.webp);
+    background-image: url(imgs/background.png);
     background-size: cover;
     background-position: top right;
     background-attachment: fixed;
