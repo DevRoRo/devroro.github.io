@@ -4,59 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-    <div class="console">
-        <div class="tela">
-            <h1>abadom gay</h1>
-        </div>
-        <div class="painel">
-            <div class="radio_buttons">
-                <div>
-                    <label for="1">alo</label>
-                    <input type="radio" id="1" name="1">
+    <body>
+        <div class="console">
+            <div class="container" id="tela">
+
+                <div class="container" id="rgb_show">
+                    <span id="r_show">R = 0</span>
+                    <br>
+                    <span id="g_show">G = 0</span>
+                    <br>
+                    <span id="b_show">B = 0</span>
                 </div>
-                <div>
-                    <label for="2">alo</label>
-                    <input type="radio" id="2" name="2">
+
+                <svg widht="100%" height="100%" id="area_desenho_poligono">
+
+
+                </svg>
+            </div>
+            <div class="container" id="painel">
+                <div class="container-fluid" id="checkbox_buttons">
+
+                    <h3 id="escolha_poligono">Escolha um polígono</h3>
+
+                    <div id="nome_poligono">
+                        <label for="1">Triangulo</label>
+                        <input type="checkbox" id="triangulo">
+                    </div>
+                    <div id="nome_poligono">
+                        <label for="2">Quadrado</label>
+                        <input type="checkbox" id="quadrado">
+                    </div>
                 </div>
-                <div>
-                    <label for="3">alo</label>
-                    <input type="radio" id="3" name="3">
+
+                <div class="container-fluid" id="rgb_poligono">
+                    <h3 id="cor_poligono">Troque a cor do polígono</h3>
+                    <div>
+                        <label for="7">R</label>
+                        <input type="range" id="rt" min="0" max="255" value="0">
+                    </div>
+                    <div>
+                        <label for="8">G</label>
+                        <input type="range" id="gt" min="0" max="255" value="0">
+                    </div>
+                    <div>
+                        <label for="9">B</label>
+                        <input type="range" id="bt" min="0" max="255" value="0">
+                    </div>
                 </div>
-                <div>
-                    <label for="4">alo</label>
-                    <input type="radio" id="4" name="4">
-                </div>
-                <div>
-                    <label for="5">alo</label>
-                    <input type="radio" id="5" name="5">
-                </div>
-                <div>
-                    <label for="6">alo</label>
-                    <input type="radio" id="6" name="6">
+
+                <div class="container-fluid" id="range_scrollers">
+
+                    <h3>Troque a cor da tela</h3>
+
+                    <div>
+                        <label for="7">R</label>
+                        <input type="range" id="r" min="0" max="255" value="0">
+                    </div>
+                    <div>
+                        <label for="8">G</label>
+                        <input type="range" id="g" min="0" max="255" value="0">
+                    </div>
+                    <div>
+                        <label for="9">B</label>
+                        <input type="range" id="b" min="0" max="255" value="0">
+                    </div>
                 </div>
             </div>
-            <div class="range_scrollers">
-                <div>
-                    <label for="6">alo</label>
-                    <input type="range">
-                </div>
-                <div>
-                    <label for="6">alo</label>
-                    <input type="range">
-                </div>
-                <div>
-                    <label for="6">alo</label>
-                    <input type="range">
-                </div>
-                <div>
-                    <label for="6">alo</label>
-                    <input type="range">
-                </div>
-            </div>
         </div>
-    </div>
-</body>
+
+        <script>
+
+            function rgb_changer() {
+                var r = document.getElementById('r').value;
+                var g = document.getElementById('g').value;
+                var b = document.getElementById('b').value;
+                var rgb = "rgb(" + r + "," + g + "," + b + ")";
+                document.getElementById("tela").style.background = rgb;
+                
+                document.getElementById('r_show').innerHTML="R = "+ r;
+                document.getElementById('g_show').innerHTML="G = "+ g;
+                document.getElementById('b_show').innerHTML="B = "+ b;
+
+                var rt = document.getElementById('rt').value;
+                var gt = document.getElementById('gt').value;
+                var bt = document.getElementById('bt').value;
+                var rgb = "fill:rgb(" + rt + "," + gt + "," + bt + ")";
+                var resultado = document.getElementById("poligono_desenhado").style = rgb;
+                document.getElementById("poligono_desenhado").style = rgb;
+            }
+
+            function desenhar_poligono() {
+
+                var desenho = document.getElementById('area_desenho_poligono')
+                var triangulo_checado = document.getElementById('triangulo').checked;
+                var quadrado_checado = document.getElementById('quadrado').checked;
+
+                if (triangulo_checado && !quadrado_checado) {
+                    desenho.innerHTML = '<polygon id="poligono_desenhado" points="50,150 150,50 250,150" style="fill:black;" />';
+                    document.getElementById('rt').value=0;
+                    document.getElementById('gt').value=0;
+                    document.getElementById('bt').value=0;
+                } else if (quadrado_checado && !triangulo_checado) {
+                    desenho.innerHTML = '<polygon id="poligono_desenhado" points="100,150 100,50 200,50 200,150" style="fill:black;" />';
+                    document.getElementById('rt').value=0;
+                    document.getElementById('gt').value=0;
+                    document.getElementById('bt').value=0;
+                } else if (quadrado_checado && triangulo_checado) {
+                    desenho.innerHTML = '<polygon id="poligono_desenhado" points="50,150 150,50 250,150" style="fill:black;" /> <polygon id="poligono_desenhado" points="100,260 100,160 200,160 200,260" style="fill:black;" />';
+                   
+                } else {
+                    desenho.innerHTML = '';
+                    document.getElementById('rt').value=0;
+                    document.getElementById('gt').value=0;
+                    document.getElementById('bt').value=0;
+                }
+        
+            }
+
+            var r = document.getElementById('r');
+            var g = document.getElementById('g');
+            var b = document.getElementById('b');
+
+            r.addEventListener('input', rgb_changer);
+            g.addEventListener('input', rgb_changer);
+            b.addEventListener('input', rgb_changer);
+
+            var triangulo = document.getElementById('triangulo');
+            var quadrado = document.getElementById('quadrado');
+
+            triangulo.addEventListener('input', desenhar_poligono);
+            quadrado.addEventListener('input', desenhar_poligono);
+
+            var rt = document.getElementById('rt');
+            var gt = document.getElementById('gt');
+            var bt = document.getElementById('bt');
+
+            rt.addEventListener('input', rgb_changer);
+            gt.addEventListener('input', rgb_changer);
+            bt.addEventListener('input', rgb_changer);
+
+
+
+            /* function rgb_changer (r, g, b) {
+                var rgb = "rgb(" + r + "," + g + "," + b + ")";
+                document.getElementById("tela").style.background=rgb;
+            }
+            var r = document.getElementById('r').value;
+            var g = document.getElementById('g').value;
+            var b = document.getElementById('b').value;
+
+            rgb_changer(r, g, b); */
+
+            //r.addEventListener(), g.addEventListener(), b.addEventListener()
+
+
+            /* <polygon points="50,150 150,50 250,150" style="fill:lime;" />
+
+            <polygon points="50,150 50,50 150,50 150,150" style="fill:lime;" /> */
+
+
+        </script>
+
+    </body>
 </html>
