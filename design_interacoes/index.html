@@ -96,6 +96,25 @@
                 document.getElementById("poligono_desenhado2").style = rgb;
             }
 
+            function rgbt_changer() {
+                var rt = document.getElementById('rt').value;
+                var gt = document.getElementById('gt').value;
+                var bt = document.getElementById('bt').value;
+
+                var triangulo_checado = document.getElementById('triangulo').checked;
+                var quadrado_checado = document.getElementById('quadrado').checked;
+
+                var rgb = "fill:rgb(" + rt + "," + gt + "," + bt + ")";
+
+                if (quadrado_checado || triangulo_checado) {
+                    document.getElementById("poligono_desenhado").style = rgb;
+
+                } else if (quadrado_checado && triangulo_checado) {
+                    document.getElementById("poligono_desenhado2").style = rgb;
+                    document.getElementById("poligono_desenhado").style = rgb;
+                }
+            }
+
             function desenhar_poligono() {
 
                 var desenho = document.getElementById('area_desenho_poligono')
@@ -147,6 +166,5 @@
             bt.addEventListener('input', rgb_changer);
 
         </script>
-
     </body>
 </html>
