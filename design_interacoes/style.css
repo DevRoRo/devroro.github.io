@@ -65,7 +65,7 @@ label {
     align-self: end;
 }
 
-#nome_poligono {
+.nome_poligono {
     display: grid;
     justify-content: center;
 }
