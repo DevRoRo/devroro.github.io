@@ -1,11 +1,18 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Reserva {
     private Cliente reservista;
     private Quarto quarto_reservado;
-    private LocalDateTime dataCheckIn;
-    private LocalDateTime dataCheckOut;
-    
+    private LocalDate dataCheckIn;
+    private LocalDate dataCheckOut;
+
+    Reserva(Cliente cliente, Quarto quarto, LocalDate dataCheckIn, LocalDate dataCheckOut) {
+        this.reservista = cliente;
+        this.quarto_reservado = quarto;
+        this.dataCheckIn = dataCheckIn;
+        this.dataCheckOut = dataCheckOut;
+    }
+
     public Cliente getReservista() {
         return reservista;
     }
@@ -18,16 +25,16 @@ public class Reserva {
     public void setQuarto_reservado(Quarto quarto_reservado) {
         this.quarto_reservado = quarto_reservado;
     }
-    public LocalDateTime getDataCheckIn() {
+    public LocalDate getDataCheckIn() {
         return dataCheckIn;
     }
-    public void setDataCheckIn(LocalDateTime dataCheckIn) {
+    public void setDataCheckIn(LocalDate dataCheckIn) {
         this.dataCheckIn = dataCheckIn;
     }
-    public LocalDateTime getDataCheckOut() {
+    public LocalDate getDataCheckOut() {
         return dataCheckOut;
     }
-    public void setDataCheckOut(LocalDateTime dataCheckOut) {
+    public void setDataCheckOut(LocalDate dataCheckOut) {
         this.dataCheckOut = dataCheckOut;
     }
     

@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -56,15 +57,40 @@ public class Main {
                     System.out.println("\n"+sistema.listarQuartosDisponiveis(nomeHotel2));
 
                     break;
-                /* case 5:
-                    sistema.fazerReserva();
+                case 5:
+                    System.out.println("Insira o nome do cliente");
+                    String nomeCliente = scanner.next();
+
+                    System.out.println("Insira o email do cliente");
+                    String emailCliente = scanner.next();
+
+                    System.out.println("insira o telefone do cliente");
+                    String telefoneCliente = scanner.next();
+
+                    System.out.println("Insira o nome do hotel que deseja reservar o quarto");
+                    String nomeHotel3 = scanner.next();
+
+                    System.out.println("Insira o numero do quarto a ser reservado");
+                    String numeroQuarto2 = scanner.next();
+
+                    System.out.println("Insira a data prevista para check-in");
+                    String dataString = scanner.next();
+                    int [] arrayDataInt=Ferramentas.dataStringparaInt(dataString);
+                    LocalDate dataCheckIn = LocalDate.of(arrayDataInt[0], arrayDataInt[1], arrayDataInt[2]);
+
+                    System.out.println("Insira a data prevista para check-out");
+                    String dataString2 = scanner.next();
+                    int [] arrayDataInt2=Ferramentas.dataStringparaInt(dataString2);
+                    LocalDate dataCheckOut = LocalDate.of(arrayDataInt2[0], arrayDataInt2[1], arrayDataInt2[2]);
+
+                    sistema.fazerReserva(nomeCliente, emailCliente, telefoneCliente, nomeHotel3, numeroQuarto2, dataCheckIn, dataCheckOut);
                     break;
-                case 6:
+/*                 case 6:
                     sistema.cancelarReserva();
-                    break;
-                case 7:
-                    sistema.listarReservasCliente();
                     break; */
+                case 7:
+                    System.out.println(sistema.listarReservasCliente());
+                    break;
                 case 8:
                     System.out.println("Saindo do sistema...");
                     break;

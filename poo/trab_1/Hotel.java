@@ -27,6 +27,23 @@ public class Hotel {
         this.endereco = endereco;
     }
 
+    public Quarto getQuartoByNumero (String numero) {
+        Quarto quartoIterado = null;
+
+        for (int i = 0; i < listadeQuartos.size(); i++) {
+
+            quartoIterado = listadeQuartos.get(i);
+
+            if (quartoIterado.getNumero().equals(numero)) {
+                return quartoIterado;
+            }
+            
+        }
+
+        return quartoIterado;
+
+    }
+
     public void adicionarQuarto (String numero, String tipo, float preco) {
 
         Quarto quarto = new Quarto(numero, tipo, preco);
