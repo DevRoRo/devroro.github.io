@@ -15,6 +15,7 @@ public class Admin {
         this.id = id;
     }
 
+    //Instancia um novo objeto hotel
     public Hotel adicionarHotel (String nome, String endereco) {
 
         Hotel hotel = new Hotel(nome, endereco);

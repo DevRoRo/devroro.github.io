@@ -9,19 +9,24 @@ public class SistemaReservas {
     private List<Cliente> listaClientes = new ArrayList<Cliente>();
     private List<Reserva> listaReservas = new ArrayList<Reserva>();
 
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
     public void adicionarHotel(String nome, String endereco) {
         Hotel hotelCriado = admin.adicionarHotel(nome, endereco);
         listaHoteis.add(hotelCriado);
     }
 
     public String listarHoteis() {
-        String lista = "";
+        String lista = "Lista de hotéis:\n";
         for (int i = 0; i < listaHoteis.size(); i++) {
-            lista += listaHoteis.get(i).getNome()+"\n";
+            lista += " - " + listaHoteis.get(i).getNome()+"\n";
         }
 
         return lista;
     }
+
 
     public Hotel iterarHotelPorNome(String nomeHotel) {
         Hotel hotelFinal=null;
@@ -34,17 +39,16 @@ public class SistemaReservas {
             }
         }
 
+        if (hotelFinal == null) {
+            throw new IllegalArgumentException("Hotel informado não existe");
+        }
+
         return hotelFinal;
     }
 
     public void adicionarQuarto (String nomeHotel, String numeroQuarto, String tipoQuarto, float precoQuarto) {
 
         Hotel hotel = iterarHotelPorNome(nomeHotel);
-
-        /* if (hotel == null) {
-            System.out.println("O hotel solicitado não existe");
-        } */
-
         hotel.adicionarQuarto(numeroQuarto, tipoQuarto, precoQuarto);
         
     }
@@ -52,8 +56,7 @@ public class SistemaReservas {
     public String listarQuartosDisponiveis (String nomeHotel) {
 
         Hotel hotel = iterarHotelPorNome(nomeHotel);
-
-        String lista = hotel.listarQuartosDisponiveis();
+        String lista = "Lista de quartos disponíveis em " + hotel.getNome() + "\n" + hotel.listarQuartosDisponiveis();
 
         return lista;
 
@@ -62,64 +65,59 @@ public class SistemaReservas {
     public void fazerReserva (String nomeCliente, String emailCliente, String telefoneCliente, String nomeHotel, String numeroQuarto, LocalDate dataCheckIn, LocalDate dataCheckOut) {
         
         Cliente cliente = cadastrarCliente(nomeCliente, emailCliente, telefoneCliente);
-
         Hotel hotel = iterarHotelPorNome(nomeHotel);
-
         Quarto quarto = hotel.getQuartoByNumero(numeroQuarto);
 
-        Reserva reserva = new Reserva(cliente, quarto, dataCheckIn, dataCheckOut);
-
-        listaReservas.add(reserva);
-
+        if (quarto.getEstaDisponivel()) {
+            Reserva reserva = new Reserva(cliente, quarto, dataCheckIn, dataCheckOut);
+            listaReservas.add(reserva);
+            quarto.setEstaDisponivel(false);
+            System.out.println("Quarto reservado");
+    
+        } else {
+            System.out.println("Quarto não disponível");
+        }        
     }
 
     public Cliente cadastrarCliente (String nome, String email, String telefone) {
 
-        Cliente cliente=null;
+        Cliente cliente = null;
+        boolean clienteEncontrado = false;
 
-        if (listaClientes.size() <= 0) {
+        for (int i = 0; i < listaClientes.size(); i++) {
 
-            cliente = new Cliente(nome, email, telefone);
+            if(listaClientes.get(i).getNome().equals(nome)) {
+                cliente = listaClientes.get(i);
+                clienteEncontrado = true;
 
-            System.out.println("Cliente cadastrado, efetuando reserva");
-            
-        } else {
-
-            for (int i = 0; i < listaClientes.size(); i++) {
-
-                if(listaClientes.get(i).getNome().equals(nome)) {
-
-                    cliente = listaClientes.get(i);
-
-                    System.out.println("Cliente já cadastrado, prosseguindo para a reserva");
-
-                } else {
-
-                    cliente = new Cliente(nome, email, telefone);
-
-                    System.out.println("Cliente cadastrado, efetuando reserva");
-
-                } 
+                break;
             }
         }
 
+            if (!clienteEncontrado) {
+                cliente = new Cliente(nome, email, telefone);
+                listaClientes.add(cliente);
+                System.out.println("Cliente cadastrado, efetuando reserva");
+            }
+            
         return cliente;
-
     }
 
-    public String listarReservasCliente () {
+    public String listarReservasCliente (String nome) {
 
-        String lista = "";
+        String lista = "Reservas feitas pelo cliente "+nome.substring(0, 1).toUpperCase() + nome.substring(1)+"\n";
 
         for (int i = 0; i < listaReservas.size(); i++) {
-
             Reserva reservaIterada = listaReservas.get(i);
-
-            lista += reservaIterada.getReservista().getNome() + reservaIterada.getQuarto_reservado().getNumero() + reservaIterada.getDataCheckIn().getMonth() + reservaIterada.getDataCheckOut().getMonth();
+            if (reservaIterada.getcliente().getNome().equals(nome)) {
+                lista += "Quarto: " + reservaIterada.getquarto().getNumero();
+                lista += " Check-In: " + reservaIterada.getDataCheckIn().getDayOfMonth() + "/" + reservaIterada.getDataCheckIn().getMonthValue() + "/" + reservaIterada.getDataCheckIn().getYear();
+                lista += " Check-In: " + reservaIterada.getDataCheckOut().getDayOfMonth() + "/" + reservaIterada.getDataCheckOut().getMonthValue() + "/" + reservaIterada.getDataCheckOut().getYear();
+            }
         }
-        
+
+        lista += "\n\n";
+
         return lista;
-
     }
-
 }

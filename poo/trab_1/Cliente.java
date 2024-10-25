@@ -3,6 +3,7 @@ public class Cliente {
     private String email;
     private String telefone;
 
+    //Construtor para o objeto Cliente que obriga a inserção dos seus atributos
     Cliente (String nome, String email, String telefone) {
         this.nome = nome;
         this.email = email;

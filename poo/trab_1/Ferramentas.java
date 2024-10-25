@@ -1,6 +1,7 @@
 public class Ferramentas {
 
-    public static int[] dataStringparaInt (String data) {
+    // recebe uma String data no formato (dd/mm/yyyy) e converte para um int[] de indice 3 para servir de parâmetro pro LocalDate Object
+    public static int[] dataStringparaInt (String data) throws NumberFormatException {
 
         int dia;
         int mes;
@@ -8,17 +9,16 @@ public class Ferramentas {
     
         int[] arrayDiaMesAno = new int[3];
 
-        String [] data1 = data.split("/");
+        String [] dataString = data.split("/");
 
-        dia=Integer.valueOf(data1[0]);
-        mes=Integer.valueOf(data1[1]);
-        ano=Integer.valueOf(data1[2]);
+        dia=Integer.valueOf(dataString[0]);
+        mes=Integer.valueOf(dataString[1]);
+        ano=Integer.valueOf(dataString[2]);
 
-        arrayDiaMesAno[0] = dia;
+        arrayDiaMesAno[2] = dia;
         arrayDiaMesAno[1] = mes;
-        arrayDiaMesAno[2] = ano;
+        arrayDiaMesAno[0] = ano;
 
         return arrayDiaMesAno;
     }
-    
 }

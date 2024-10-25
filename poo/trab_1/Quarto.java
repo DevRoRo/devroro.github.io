@@ -4,6 +4,7 @@ public class Quarto {
     private float preco;
     private Boolean estaDisponivel;
 
+    //Construtor para o objeto Quarto que obriga a inserção dos seus atributos
     Quarto(String numero, String tipo, float preco) {
         this.numero = numero;
         this.tipo = tipo;
