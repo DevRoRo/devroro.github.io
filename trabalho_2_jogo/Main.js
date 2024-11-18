@@ -1,11 +1,11 @@
-let rs = 1
-let cs = 1
-let re = 2
-let ce = 2
+let rs = 15
+let cs = 5
+let re = 16
+let ce = 6
 
-let direction = 'ArrowDown'
+var direction = ''
 
-function movimentarCobra(direction) {
+function movimentarCobra() {
     const element = document.getElementById('cobra')
     let stringArea = '' 
 
@@ -38,4 +38,42 @@ function movimentarCobra(direction) {
 
 }
 
-document.addEventListener('keydown', movimentarCobra)
+function direcionarCobra(event) {
+    switch (event.key) {
+        case 'ArrowUp':
+        case 'ArrowDown':
+        case 'ArrowRight':
+        case 'ArrowLeft':
+
+            direction = event.key
+
+            break;
+
+        default:
+            break;
+
+    }
+}
+
+function colisao() {
+    let element = document.getElementById('cobra').style.gridArea
+    const arrayDirecoes = element.split("/")
+    
+
+    if (arrayDirecoes[1] == 1 && arrayDirecoes[3] == 2) {
+        direction = 'ArrowRight'
+    } else if (arrayDirecoes[0] == 1 && arrayDirecoes[2] == 2) {
+        direction = 'ArrowDown'
+    } else if (arrayDirecoes[1] == 50 && arrayDirecoes[3] == 51) {
+        direction = 'ArrowLeft'
+    } else if (arrayDirecoes[0] == 50 && arrayDirecoes[2] == 51){
+        direction = 'ArrowUp'
+    }
+}
+ 
+document.addEventListener('keydown', direcionarCobra)
+
+timerMovimento = setInterval(movimentarCobra, 200)
+
+timerCOlisao =setInterval(colisao, 200)
+
