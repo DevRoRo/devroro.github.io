@@ -41,9 +41,11 @@ function movimentarCobra() {
 function direcionarCobra(event) {
 
     let element = document.getElementById("plano_desenho_cobra")
+    let cima = '<rect height="10" width="4" x="8" y="0" fill="red"></rect> <circle r="8" cx="10.5" cy="10.5" fill="green"></circle> <circle r="2" cx="7" cy="14" fill="white"></circle> <circle r="2" cx="14" cy="14" fill="white"></circle> <circle r="1" cx="7" cy="13" fill="blue"></circle> <circle r="1" cx="14" cy="13" fill="blue"></circle>'
 
     switch (event.key) {
         case 'ArrowUp':
+            element.innerHTML=cima
             direction = event.key
 
         case 'ArrowDown':
