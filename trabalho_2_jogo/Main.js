@@ -39,12 +39,22 @@ function movimentarCobra() {
 }
 
 function direcionarCobra(event) {
+
+    let element = document.getElementById("plano_desenho_cobra")
+
     switch (event.key) {
         case 'ArrowUp':
-        case 'ArrowDown':
-        case 'ArrowRight':
-        case 'ArrowLeft':
+            direction = event.key
 
+        case 'ArrowDown':
+            direction = event.key
+
+        case 'ArrowRight':
+
+            direction = event.key
+
+        case 'ArrowLeft':
+            
             direction = event.key
 
             break;
@@ -60,13 +70,13 @@ function colisao() {
     const arrayDirecoes = element.split("/")
     
 
-    if (arrayDirecoes[1] == 1 && arrayDirecoes[3] == 2) {
+    if (arrayDirecoes[1] <= 1 && arrayDirecoes[3] <= 2) {
         direction = 'ArrowRight'
-    } else if (arrayDirecoes[0] == 1 && arrayDirecoes[2] == 2) {
+    } else if (arrayDirecoes[0] <= 1 && arrayDirecoes[2] <= 2) {
         direction = 'ArrowDown'
-    } else if (arrayDirecoes[1] == 50 && arrayDirecoes[3] == 51) {
+    } else if (arrayDirecoes[1] >= 25 && arrayDirecoes[3] >= 26) {
         direction = 'ArrowLeft'
-    } else if (arrayDirecoes[0] == 50 && arrayDirecoes[2] == 51){
+    } else if (arrayDirecoes[0] >= 25 && arrayDirecoes[2] >= 26){
         direction = 'ArrowUp'
     }
 }
