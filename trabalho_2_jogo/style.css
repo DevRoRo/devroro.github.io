@@ -13,3 +13,10 @@
     height: 21px;
     grid-area: 15/5/16/6;
 }
+
+#comida {
+
+    width: 21px;
+    height: 21px;
+    grid-area: 12/5/13/6;
+}
