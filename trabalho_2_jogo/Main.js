@@ -5,6 +5,9 @@ let ce = 6
 
 let contadorComida = 0
 
+var stringAreaCobra = ''
+var stringAreaComida = ''
+
 const cima = '<rect height="10" width="4" x="8" y="0" fill="red"></rect>\n'+
                 '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+ 
                 '<circle r="2" cx="7" cy="14" fill="white"></circle>\n'+ 
@@ -37,7 +40,7 @@ const divComida = '<div id="comida"><svg id="plano_desenho_comida"><circle r="4"
 
 const svgComida = ''
 
-var direction = 'ArrowRight'
+var direction = ''
 
 const planoDesenhoCobra = document.getElementById("plano_desenho_cobra")
 
@@ -47,11 +50,9 @@ const gridPrincipal = document.getElementById('grid_principal')
 
 const comida = document.getElementById('comida')
 
-var  comidaDiv
+var comidaDiv
 
-function movimentarCobra() {
-
-    let stringArea = '' 
+function movimentarCobra() { 
 
     switch (direction) {
         case 'ArrowUp':
@@ -76,9 +77,9 @@ function movimentarCobra() {
 
     }
 
-    stringArea = rs+'/'+cs+'/'+re+'/'+ce
+    stringAreaCobra = rs+'/'+cs+'/'+re+'/'+ce
 
-    cobra.style.gridArea = stringArea
+    cobra.style.gridArea = stringAreaCobra
 
 }
 
@@ -141,7 +142,7 @@ function spawnComida() {
     let cs = Math.floor(Math.random() * 24)
     let ce = cs + 1
 
-    let stringArea = rs+'/'+cs+'/'+re+'/'+ce
+    stringAreaComida = rs+'/'+cs+'/'+re+'/'+ce
 
     /* gridPrincipal.innerHTML += divComida
 
@@ -149,18 +150,28 @@ function spawnComida() {
 
     comidaDiv = document.createElement('div')
     comidaDiv.innerHTML = divComida; gridPrincipal.appendChild(comidaDiv.firstChild)
+    console.log(comidaDiv)
     
     const comida = document.getElementById('comida')
-    comida.style.gridArea = stringArea
+    comida.style.gridArea = stringAreaComida
 
 }
 
 function comerComida() {
+    document.getElementById('comida').parentNode.removeChild(document.getElementById('comida'))
+}
 
-    if (cobra.style.gridArea == comidaDiv.style.gridArea ) {
-        comidaDiv.remove
-        contadorComida--
+function sistemaComida() {
+
+    if(contadorComida<1){
+        spawnComida();
+        contadorComida++
     }
+
+    if(stringAreaCobra == stringAreaComida) {
+        comerComida()
+        contadorComida--
+    }       
 }
  
 document.addEventListener('keydown', direcionarCobra)
@@ -169,12 +180,4 @@ timerMovimento = setInterval(movimentarCobra, 200)
 
 timerColisao = setInterval(colisao, 200)
 
-if(contadorComida<1){
-    spawnComida();
-    contadorComida++
-}
-
-console.log(cobra.style.gridArea)
-console.log(document.getElementById('comida').style.gridArea)
-
-if(cobra.style.gridArea == comida.style.gridArea) console.log('teste')
+timerSistema = setInterval(sistemaComida, 200)
