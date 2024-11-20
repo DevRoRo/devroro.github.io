@@ -1,60 +1,72 @@
-let rs = 15
-let cs = 5
-let re = 16
-let ce = 6
+
 
 let contadorComida = 0
 
-var stringAreaCobra = ''
+let gameOver = false
+
+var stringAreaPlayer = '15/5/16/6'
+var stringAreaInimigo = '12/7/13/8'
 var stringAreaComida = ''
+var direction = ''
 
-const cima = '<rect height="10" width="4" x="8" y="0" fill="red"></rect>\n'+
-                '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+ 
-                '<circle r="2" cx="7" cy="14" fill="white"></circle>\n'+ 
-                '<circle r="2" cx="14" cy="14" fill="white"></circle>\n'+ 
-                '<circle r="1" cx="7" cy="13" fill="blue"></circle>\n'+
-                '<circle r="1" cx="14" cy="13" fill="blue"></circle>'
-
-const baixo = '<rect height="10" width="4" x="8" y="10.5" fill="red"></rect>\n'+
+const cima = 
                 '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+
-                '<circle r="2" cx="14" cy="7" fill="white"></circle>\n'+
-                '<circle r="2" cx="7" cy="7" fill="white"></circle>\n'+
-                '<circle r="1" cx="14" cy="8 " fill="blue"></circle>\n'+
-                '<circle r="1" cx="7" cy="8" fill="blue"></circle>'
+                '<polygon points="10.5, 10.5 0, 0 20, 0" fill="white"></polygon>' 
 
-const esquerda = '<rect height="4" width="10" x="0" y="8" fill="red"></rect>\n'+
+const baixo = 
                 '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+
-                '<circle r="2" cx="14" cy="7" fill="white"></circle>\n'+
-                '<circle r="2" cx="14" cy="14" fill="white"></circle>\n'+
-                '<circle r="1" cx="13" cy="8 " fill="blue"></circle>\n'+
-                '<circle r="1" cx="13" cy="14" fill="blue"></circle>'
+                '<polygon points="10.5, 10.5 20, 20 0, 20" fill="white"></polygon>'
 
-const direita = '<rect height="4" width="10" x="14" y="8" fill="red"></rect>\n'+
+const esquerda = 
                 '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+
-                '<circle r="2" cx="7" cy="14" fill="white"></circle>\n'+
-                '<circle r="2" cx="7" cy="7" fill="white"></circle>\n'+
-                '<circle r="1" cx="8" cy="14" fill="blue"></circle>\n'+
-                '<circle r="1" cx="8" cy="7" fill="blue"></circle>'
+                '<polygon points="10.5, 10.5 0, 0 0, 20" fill="white"></polygon>'
+
+const direita = 
+                '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+
+                '<polygon points="10.5, 10.5 20, 0 20, 20" fill="white"></polygon>'
+
+const cima2 = 
+                '<circle r="8" cx="10.5" cy="10.5" fill="red"></circle>\n'+
+                '<polygon points="10.5, 10.5 0, 0 20, 0" fill="white"></polygon>' 
+
+const baixo2 = 
+                '<circle r="8" cx="10.5" cy="10.5" fill="red"></circle>\n'+
+                '<polygon points="10.5, 10.5 20, 20 0, 20" fill="white"></polygon>'
+
+const esquerda2 = 
+                '<circle r="8" cx="10.5" cy="10.5" fill="red"></circle>\n'+
+                '<polygon points="10.5, 10.5 0, 0 0, 20" fill="white"></polygon>'
+
+const direita2 = 
+                '<circle r="8" cx="10.5" cy="10.5" fill="red"></circle>\n'+
+                '<polygon points="10.5, 10.5 20, 0 20, 20" fill="white"></polygon>'
 
 const divComida = '<div id="comida"><svg id="plano_desenho_comida"><circle r="4" cx="10.5" cy="10.5" fill="yellow" stroke="red"></circle></svg></div>'
 
+const iconeMorte = '<svg id="plano_desenho_player" width="100%" height="100%"><line x1="2" y1="2" x2="19" y2="19" style="stroke-width:3;stroke:black"></line><line x1="2" y1="19" x2="19" y2="2" style="stroke-width:3;stroke:black"></line></svg>'
+
 const svgComida = ''
 
-var direction = ''
+const planoDesenhoPlayer = document.getElementById("plano_desenho_player")
 
-const planoDesenhoCobra = document.getElementById("plano_desenho_cobra")
+const planoDesenhoInimigo = document.getElementById("plano_desenho_inimigo")
 
-const cobra = document.getElementById('cobra')
+const player = document.getElementById('player')
 
 const gridPrincipal = document.getElementById('grid_principal')
 
-const comida = document.getElementById('comida')
+function movimentar(direcao, coordenadaAnterior) { 
 
-var comidaDiv
+    console.log(direcao)
+    console.log(coordenadaAnterior)
+    array = coordenadaAnterior.split("/")
 
-function movimentarCobra() { 
+    let rs = array[0]
+    let cs = array[1]
+    let re = array[2]
+    let ce = array[3]
 
-    switch (direction) {
+    switch (direcao) {
         case 'ArrowUp':
             rs--
             re--
@@ -72,40 +84,44 @@ function movimentarCobra() {
             ce--
             break;
 
+        case 'parar':
+
+            break
+
         default:
+
             break;
 
     }
 
-    stringAreaCobra = rs+'/'+cs+'/'+re+'/'+ce
+    let stringArea = rs+'/'+cs+'/'+re+'/'+ce
 
-    cobra.style.gridArea = stringAreaCobra
-
+    return stringArea
 }
 
-function direcionarCobra(event) {
+function direcionarPlayer(event) {
 
     switch (event.key) {
         case 'ArrowUp':
-            planoDesenhoCobra.innerHTML = cima
+            planoDesenhoPlayer.innerHTML = cima
             direction = event.key
 
             break;
 
         case 'ArrowDown':
-            planoDesenhoCobra.innerHTML = baixo
+            planoDesenhoPlayer.innerHTML = baixo
             direction = event.key
 
             break;
 
         case 'ArrowRight':
-            planoDesenhoCobra.innerHTML = direita
+            planoDesenhoPlayer.innerHTML = direita
             direction = event.key
             
             break;
 
         case 'ArrowLeft':
-            planoDesenhoCobra.innerHTML = esquerda
+            planoDesenhoPlayer.innerHTML = esquerda
             direction = event.key
 
             break;
@@ -116,41 +132,40 @@ function direcionarCobra(event) {
     }
 }
 
-function colisao() {
-    let element = cobra.style.gridArea
+function colisao(personagem) {
+    let element = personagem.style.gridArea
     const arrayDirecoes = element.split("/")
     
-    if (arrayDirecoes[1] <= 1 && arrayDirecoes[3] <= 2) {
-        direction = 'ArrowRight'
-        planoDesenhoCobra.innerHTML=direita
-    } else if (arrayDirecoes[0] <= 1 && arrayDirecoes[2] <= 2) {
-        direction = 'ArrowDown'
-        planoDesenhoCobra.innerHTML=baixo
-    } else if (arrayDirecoes[1] >= 25 && arrayDirecoes[3] >= 26) {
-        direction = 'ArrowLeft'
-        planoDesenhoCobra.innerHTML=esquerda
-    } else if (arrayDirecoes[0] >= 25 && arrayDirecoes[2] >= 26){
-        direction = 'ArrowUp'
-        planoDesenhoCobra.innerHTML=cima
+    if (arrayDirecoes[1] == 1 && arrayDirecoes[3] == 2) {
+        planoDesenhoPlayer.innerHTML=iconeMorte
+        gameOver = true
+        direction = 'parar'
+    } else if (arrayDirecoes[0] == 1 && arrayDirecoes[2] == 2) {
+        planoDesenhoPlayer.innerHTML=iconeMorte
+        gameOver = true
+        direction = 'parar'
+    } else if (arrayDirecoes[1] == 25 && arrayDirecoes[3] == 26) {
+        planoDesenhoPlayer.innerHTML=iconeMorte
+        gameOver = true
+        direction = 'parar'
+    } else if (arrayDirecoes[0] == 25 && arrayDirecoes[2] == 26){
+        planoDesenhoPlayer.innerHTML=iconeMorte
+        gameOver = true
+        direction = 'parar'
     }
 }
 
 function spawnComida() {
 
-    let rs = Math.floor(Math.random() * 24)
+    let rs = Math.floor(Math.random() * 23)+2
     let re = rs + 1
-    let cs = Math.floor(Math.random() * 24)
+    let cs = Math.floor(Math.random() * 23)+2
     let ce = cs + 1
 
     stringAreaComida = rs+'/'+cs+'/'+re+'/'+ce
 
-    /* gridPrincipal.innerHTML += divComida
-
-    comida.style.gridArea = stringArea --> buscar entender o motivo de não funcionar */
-
-    comidaDiv = document.createElement('div')
+    let comidaDiv = document.createElement('div')
     comidaDiv.innerHTML = divComida; gridPrincipal.appendChild(comidaDiv.firstChild)
-    console.log(comidaDiv)
     
     const comida = document.getElementById('comida')
     comida.style.gridArea = stringAreaComida
@@ -159,25 +174,57 @@ function spawnComida() {
 
 function comerComida() {
     document.getElementById('comida').parentNode.removeChild(document.getElementById('comida'))
+
 }
 
-function sistemaComida() {
+function sistemaComida(stringArea) {
 
     if(contadorComida<1){
         spawnComida();
         contadorComida++
     }
 
-    if(stringAreaCobra == stringAreaComida) {
+    if(stringArea == comida.style.gridArea  ) {
         comerComida()
         contadorComida--
     }       
 }
+
+function directionInimigo() {
+    
+    random = Math.floor(Math.random() * 4)
+
+    if (random == 0) {
+        planoDesenhoInimigo.innerHTML = cima2
+        return 'ArrowUp'
+    } else if (random == 1){
+        planoDesenhoInimigo.innerHTML = baixo2
+        return 'ArrowDown'
+    } else if (random == 2){
+        planoDesenhoInimigo.innerHTML = direita2
+        return 'ArrowRight'
+    } else if (random == 3){
+        planoDesenhoInimigo.innerHTML = esquerda2
+        return 'ArrowLeft'
+    }
+}
+
+function jogo() {
+
+    player.style.gridArea = movimentar(direction, stringAreaPlayer)
+    stringAreaPlayer = player.style.gridArea
+
+    inimigo.style.gridArea = movimentar(directionInimigo(), stringAreaInimigo)
+    stringAreaInimigo = inimigo.style.gridArea
+
+    colisao(player)
+
+
+
+    sistemaComida(player.style.gridArea)
+
+}
  
-document.addEventListener('keydown', direcionarCobra)
+document.addEventListener('keydown', direcionarPlayer)
 
-timerMovimento = setInterval(movimentarCobra, 200)
-
-timerColisao = setInterval(colisao, 200)
-
-timerSistema = setInterval(sistemaComida, 200)
+timerJogo = setInterval(jogo, 100)
