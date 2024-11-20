@@ -7,7 +7,7 @@ let gameOver = false
 var stringAreaPlayer = '15/5/16/6'
 var stringAreaInimigo = '12/7/13/8'
 var stringAreaComida = ''
-var direction = ''
+var direction = 'ArrowRight'
 
 const cima = 
                 '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>\n'+
@@ -138,19 +138,15 @@ function colisao(personagem) {
     
     if (arrayDirecoes[1] == 1 && arrayDirecoes[3] == 2) {
         planoDesenhoPlayer.innerHTML=iconeMorte
-        gameOver = true
         direction = 'parar'
     } else if (arrayDirecoes[0] == 1 && arrayDirecoes[2] == 2) {
         planoDesenhoPlayer.innerHTML=iconeMorte
-        gameOver = true
         direction = 'parar'
     } else if (arrayDirecoes[1] == 25 && arrayDirecoes[3] == 26) {
         planoDesenhoPlayer.innerHTML=iconeMorte
-        gameOver = true
         direction = 'parar'
     } else if (arrayDirecoes[0] == 25 && arrayDirecoes[2] == 26){
         planoDesenhoPlayer.innerHTML=iconeMorte
-        gameOver = true
         direction = 'parar'
     }
 }
@@ -218,8 +214,6 @@ function jogo() {
     stringAreaInimigo = inimigo.style.gridArea
 
     colisao(player)
-
-
 
     sistemaComida(player.style.gridArea)
 
