@@ -12,8 +12,8 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
-public boolean movimentoValido() {
+/* public boolean movimentoValido() {
 
-}
+} */
 
 }

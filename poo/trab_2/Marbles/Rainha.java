@@ -1,10 +1,10 @@
 package Marbles;
 
-public class Rei extends Pecas {
-    
+public class Rainha extends Pecas {
+
     @Override
     public String toString() {
-        return "\u2654";
+        return "\u2655";
     }
-
+    
 }
