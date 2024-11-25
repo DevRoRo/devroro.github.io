@@ -4,6 +4,7 @@ let re = 16
 let ce = 6
 
 let contadorComida = 0
+let contadorParteCobra = 1
 
 var stringAreaCobra = ''
 var stringAreaComida = ''
@@ -38,7 +39,9 @@ const direita = '<rect height="4" width="10" x="14" y="8" fill="red"></rect>\n'+
 
 const divComida = '<div id="comida"><svg id="plano_desenho_comida"><circle r="4" cx="10.5" cy="10.5" fill="yellow" stroke="red"></circle></svg></div>'
 
-const svgComida = ''
+const parteCobraSVG = '<svg id="plano_desenho_cobra" width="100%" height="100%">'
+                        '<circle r="8" cx="10.5" cy="10.5" fill="green"></circle>'+
+                        '</svg>'
 
 var direction = ''
 
@@ -115,23 +118,22 @@ function direcionarCobra(event) {
 
     }
 }
-
 function colisao() {
     let element = cobra.style.gridArea
     const arrayDirecoes = element.split("/")
     
     if (arrayDirecoes[1] <= 1 && arrayDirecoes[3] <= 2) {
-        direction = 'ArrowRight'
-        planoDesenhoCobra.innerHTML=direita
-    } else if (arrayDirecoes[0] <= 1 && arrayDirecoes[2] <= 2) {
         direction = 'ArrowDown'
         planoDesenhoCobra.innerHTML=baixo
-    } else if (arrayDirecoes[1] >= 25 && arrayDirecoes[3] >= 26) {
+    } else if (arrayDirecoes[0] <= 1 && arrayDirecoes[2] <= 2) {
         direction = 'ArrowLeft'
         planoDesenhoCobra.innerHTML=esquerda
-    } else if (arrayDirecoes[0] >= 25 && arrayDirecoes[2] >= 26){
+    } else if (arrayDirecoes[1] >= 25 && arrayDirecoes[3] >= 26) {
         direction = 'ArrowUp'
         planoDesenhoCobra.innerHTML=cima
+    } else if (arrayDirecoes[0] >= 25 && arrayDirecoes[2] >= 26){
+        direction = 'ArrowRight'
+        planoDesenhoCobra.innerHTML=direita
     }
 }
 
@@ -159,6 +161,9 @@ function spawnComida() {
 
 function comerComida() {
     document.getElementById('comida').parentNode.removeChild(document.getElementById('comida'))
+
+    let parteCobra = document.createElement('cobra'+contadorParteCobra)
+    parteCobra.innerHTML = parteCobraSVG; gridPrincipal.firstChild(parteCobra.firstChild)
 }
 
 function sistemaComida() {
