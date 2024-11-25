@@ -7,11 +7,17 @@
     
 }
 
-#cobra {
+#player {
 
     width: 21px;
     height: 21px;
     grid-area: 15/5/16/6;
+}
+
+#inimigo {
+    width: 21px;
+    height: 21px;
+    grid-area: 12/7/13/8
 }
 
 #comida {
@@ -19,4 +25,25 @@
     width: 21px;
     height: 21px;
     grid-area: 12/5/13/6;
+}
+
+#borda_cima {
+    background-color: red;
+    grid-area: 1/1/2/26;
+}
+
+#borda_baixo {
+    background-color: red;
+    grid-area: 25/1/26/26;
+}
+
+#borda_direita {
+    background-color: red;
+    grid-area: 1/26/26/25;
+}
+
+#borda_esquerda {
+    background-color: red;
+    grid-area: 1/1/26/2;
+    
 }
