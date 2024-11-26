@@ -1,6 +1,10 @@
 package Marbles;
 
 public class Peao extends Pecas{
+
+    public Peao (Cor cor) {
+        super(cor);
+    }
     
     @Override
     public String toString() {

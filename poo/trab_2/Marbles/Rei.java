@@ -1,6 +1,10 @@
 package Marbles;
 
 public class Rei extends Pecas {
+
+    public Rei (Cor cor) {
+        super(cor);
+    }
     
     @Override
     public String toString() {
@@ -9,7 +13,7 @@ public class Rei extends Pecas {
         if (this.getCor()==Cor.BRANCO) {
             corPeca = "\u2654";
         } else {
-            corPeca = "\u265A";
+            corPeca = "\u265A/";
         }
 
         return corPeca;

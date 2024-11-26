@@ -1,6 +1,10 @@
 package Marbles;
 
 public class Torre extends Pecas {
+
+    public Torre (Cor cor) {
+        super(cor);
+    }
     
     @Override
     public String toString() {

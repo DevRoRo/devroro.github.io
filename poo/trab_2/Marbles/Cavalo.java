@@ -2,6 +2,10 @@ package Marbles;
 
 public class Cavalo extends Pecas{
     
+    public Cavalo (Cor cor) {
+        super(cor);
+    }
+
     @Override
     public String toString() {
         String corPeca = "";

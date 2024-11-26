@@ -9,11 +9,61 @@ public class Tabuleiro {
         for (int i = 0; i < tabuleiro.length; i++) {
             
             for (int j = 0; j < tabuleiro[i].length; j++) {
-                
-                if(i == 1) {
-                    tabuleiro[i][j] = new Peao(Cor.BRANCO);
+
+                if(i == 0 || i == 7){
+
+                    Cor cor;
+
+                    if(i == 0) {
+                        cor = Cor.BRANCO;
+                    } else {
+                        cor = Cor.PRETO;
+                    }
+
+                    switch (j) {
+                        case 0:
+                        case 7:
+                            tabuleiro[i][j] = new Torre(cor);
+                            break;
+
+                        case 1:
+                        case 6:
+                            tabuleiro[i][j] = new Cavalo(cor);
+                            break;
+
+                        case 2:
+                        case 5:
+                            tabuleiro[i][j] = new Bispo(cor);
+                            break;
+
+                        case 3:
+                            tabuleiro[i][j] = new Rei(cor);
+                            break;
+                        case 4:
+                            tabuleiro[i][j] = new Rainha(cor);
+                            break;
+                    
+                        default:
+                            break;
+                    }
                 }
                 
+                if(i == 1 || i == 6) {
+                    Cor cor;
+
+                    if (i == 1) {
+                        cor = Cor.BRANCO;
+                    } else {
+                        cor = Cor.PRETO;
+                    }
+
+                    tabuleiro[i][j] = new Peao(cor);
+                } else if (6 > i && i > 1) {
+                    tabuleiro[i][j] = new Vazio();
+                }
+                
+
+
             }
         }
 

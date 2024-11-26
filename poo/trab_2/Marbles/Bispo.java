@@ -2,6 +2,10 @@ package Marbles;
 
 public class Bispo extends Pecas {
 
+    public Bispo (Cor cor) {
+        super(cor);
+    }
+
     @Override
     public String toString() {
         String corPeca = "";
