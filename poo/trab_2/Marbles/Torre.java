@@ -4,7 +4,15 @@ public class Torre extends Pecas {
     
     @Override
     public String toString() {
-        return "\u2656";
+        String corPeca = "";
+
+        if (this.getCor()==Cor.BRANCO) {
+            corPeca = "\u2656";
+        } else {
+            corPeca = "\u265c";
+        }
+
+        return corPeca;
     }
 
 }

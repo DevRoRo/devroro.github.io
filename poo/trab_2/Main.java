@@ -12,6 +12,5 @@ public class Main {
 
         System.out.println(novoT[0][0].toString());
 
-        tabuleiro.setTabuleiro(null);
     }
 }

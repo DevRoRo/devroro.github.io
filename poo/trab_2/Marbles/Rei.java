@@ -4,7 +4,15 @@ public class Rei extends Pecas {
     
     @Override
     public String toString() {
-        return "\u2654";
+        String corPeca = "";
+
+        if (this.getCor()==Cor.BRANCO) {
+            corPeca = "\u2654";
+        } else {
+            corPeca = "\u265A";
+        }
+
+        return corPeca;
     }
 
 }
