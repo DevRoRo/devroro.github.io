@@ -13,7 +13,7 @@ public class Rei extends Pecas {
         if (this.getCor()==Cor.BRANCO) {
             corPeca = "\u2654";
         } else {
-            corPeca = "\u265A/";
+            corPeca = "\u265a";
         }
 
         return corPeca;

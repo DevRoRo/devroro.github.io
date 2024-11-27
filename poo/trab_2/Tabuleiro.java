@@ -69,9 +69,9 @@ public class Tabuleiro {
 
     }
 
-    public Pecas[][] getTabuleiro() {
+/*     public Pecas[][] getTabuleiro() {
         return tabuleiro;
-    }
+    } */
     
     public String toString() {
         String ilustracaoTerminal = "";

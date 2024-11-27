@@ -4,7 +4,7 @@ public class Main {
 
         Tabuleiro tabuleiro = new Tabuleiro();
 
-        System.out.println(tabuleiro.toString());
+        System.out.println(tabuleiro);
 
     }
 }

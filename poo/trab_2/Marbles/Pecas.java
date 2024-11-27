@@ -16,8 +16,10 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
-/* public boolean movimentoValido() {
+public boolean movimentoValido(int[] parOrdenado) {
+    boolean valido = false;
 
-} */
+    return valido;
+}
 
 }
