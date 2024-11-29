@@ -20,12 +20,25 @@ public void setCor(Cor cor) {
 public boolean movimentoValido(int[] parOrdenado) {
 
     boolean valido = false;
+    int x = parOrdenado[0];
+    int y = parOrdenado[1];
 
-    if (parOrdenado[0] < 8 && parOrdenado[1] < 8) {
+    if (x < 8 && y < 8) {
         valido = true;
     }
 
     return valido;
+}
+
+public int[] getParOrdenado() {
+    return parOrdenado;
+}
+
+public void setParOrdenado(int x, int y) {
+    int [] parOrdenado = new int[2];
+    parOrdenado[0] = x;
+    parOrdenado[1] = y;
+    this.parOrdenado = parOrdenado;
 }
 
 }

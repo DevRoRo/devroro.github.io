@@ -21,21 +21,22 @@ public class Peao extends Pecas{
         return corPeca;
     }
 
-    public boolean movimentoValido(Object[] pecaEMovimento) {
+    public boolean movimentoValido(int[] parOrdenado) {
         
         boolean valido = false;
 
-        int[] parOrdenado = (int[]) pecaEMovimento[1];
-
-        if (super.movimentoValido(parOrdenado)) /* Buscar tratar exceções para movimentos inválidos enquanto instância de peça
-        para retornar ao usuário como prosseguir */{
+        if (super.movimentoValido(parOrdenado)) /* Buscar atirar exceções para movimentos inválidos enquanto instância de peça
+        para catar no método executarMovimento da classe tabuleiro */{
 
             if(this.primeiroMovimento) {
-                /* A partir daqui é necessário ter o registro da posição atual de cada peça, atualmente no código não existe
-                 * nenhum atributo responsável por isso, a única classe que sabe a localização de determinada peça é a classe Tabuleiro.
-                 * É necessário implementar o registro das posições das peças antes de seguir a validação do movimento das instâncias de
-                 * classe filhas.
-                 */
+
+                int xFinal = parOrdenado[0];
+                int yFinal = parOrdenado[1];
+
+                int [] parOrdenadoAtual = this.getParOrdenado();
+                int xAtual = parOrdenadoAtual[0];
+                int yAtual = parOrdenadoAtual[1];
+
             }
 
         }
