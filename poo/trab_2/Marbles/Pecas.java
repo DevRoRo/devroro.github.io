@@ -17,7 +17,7 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
-public boolean movimentoValido(int[] parOrdenado) {
+public boolean movimentoValido(int[] parOrdenado) throws Exception { /* talvez possa ser void */
 
     boolean valido = false;
     int x = parOrdenado[0];

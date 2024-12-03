@@ -84,9 +84,9 @@ public class Tabuleiro {
 
     }
 
-/*     public Pecas[][] getTabuleiro() {
-        return tabuleiro;
-    } */
+    public Pecas[][] getTabuleiro() {
+            return tabuleiro;
+        }
     
     public String toString() {
         String ilustracaoTerminal = "";
@@ -108,21 +108,28 @@ public class Tabuleiro {
 
     public void executarMovimento(Object[] pecaEMovimento) {
 
-        Pecas pecaMovimentada = (Pecas) pecaEMovimento[0];
+        try {
 
-        int[] parOrdenadoFinal = (int[]) pecaEMovimento[1];
+            Pecas pecaMovimentada = (Pecas) pecaEMovimento[0];
 
-        pecaMovimentada.movimentoValido(parOrdenadoFinal); /* Usar try/catch para pegar a exceção atirada pelos métodos movimentosVálidos das classes filhas de Pecas */
-
-        int x = parOrdenadoFinal[0];
-        int y = parOrdenadoFinal[1];
-
-        int [] parOrdenadoAtual = pecaMovimentada.getParOrdenado();
-
-        tabuleiro[x][y] = pecaMovimentada;
-
-        tabuleiro[parOrdenadoAtual[0]][parOrdenadoFinal[1]] = new Vazio(); /* melhorar leitura dessa parte da função, armazenar os índices de parOrdenadoAtual
-        em varíaveis que comuniquem melhor a ideia de localização da peça antes do movimento */
+            int[] parOrdenadoFinal = (int[]) pecaEMovimento[1];
+    
+            pecaMovimentada.movimentoValido(parOrdenadoFinal);
+        
+            int x = parOrdenadoFinal[0];
+            int y = parOrdenadoFinal[1];
+    
+            int [] parOrdenadoAtual = pecaMovimentada.getParOrdenado();
+            int xAtual  = parOrdenadoAtual[0];
+            int yAtual = parOrdenadoAtual[1];
+    
+            tabuleiro[y][x] = pecaMovimentada;
+    
+            tabuleiro[yAtual][xAtual] = new Vazio();
+      
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
     }
 } 

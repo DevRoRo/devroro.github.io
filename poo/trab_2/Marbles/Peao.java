@@ -21,24 +21,62 @@ public class Peao extends Pecas{
         return corPeca;
     }
 
-    public boolean movimentoValido(int[] parOrdenado) {
+    public boolean movimentoValido(int[] parOrdenado) throws Exception { /* Talvez não precise retornar boolean e ser void */
         
         boolean valido = false;
 
-        if (super.movimentoValido(parOrdenado)) /* Buscar atirar exceções para movimentos inválidos enquanto instância de peça
-        para catar no método executarMovimento da classe tabuleiro */{
+        if (super.movimentoValido(parOrdenado)) {
+
+            int xFinal = parOrdenado[0];
+            int yFinal = parOrdenado[1];
+
+            int [] parOrdenadoAtual = this.getParOrdenado();
+            int xAtual = parOrdenadoAtual[0];
+            int yAtual = parOrdenadoAtual[1];
+
+            Cor corPeca = this.getCor();
+
+            int qtdCasasPermitidas;
 
             if(this.primeiroMovimento) {
-
-                int xFinal = parOrdenado[0];
-                int yFinal = parOrdenado[1];
-
-                int [] parOrdenadoAtual = this.getParOrdenado();
-                int xAtual = parOrdenadoAtual[0];
-                int yAtual = parOrdenadoAtual[1];
-
+                qtdCasasPermitidas =  2;
+            } else {
+                qtdCasasPermitidas = 1;
             }
 
+            switch (corPeca) {
+                case BRANCO:
+                
+                    if(xFinal == xAtual && yFinal <= yAtual-qtdCasasPermitidas) {
+
+                        valido = true;
+
+                    } else {
+                        throw new Exception("movimento incorreto, declare novamente");
+                    }
+
+                break;
+
+                case PRETO:
+
+                    if(xFinal == xAtual && yFinal >= yAtual+qtdCasasPermitidas) {
+
+                        valido = true;
+
+                    } else {
+                        throw new Exception("movimento incorreto, declare novamente");
+                    }
+
+                break;
+            
+                default:
+                break;
+            }
+
+            this.primeiroMovimento = false;
+
+        } else {
+            throw new Exception("Informe coordenadas válidas para uma matrix 8x8");
         }
 
         return valido;

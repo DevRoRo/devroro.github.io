@@ -24,6 +24,8 @@ public class Jogador {
 
     public Object[] declararMovimento (Pecas peca, int x, int y) {
 
+        /* Limitar a escolha da peca para a cor armanezada em time */
+
         Object[] pecaEMovimento = new Object[2];
 
         int [] parOrdenado = empacotarCoordMovimento(x, y);
