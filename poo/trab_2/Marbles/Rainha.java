@@ -11,9 +11,9 @@ public class Rainha extends Pecas {
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2655";
-        } else {
             corPeca = "\u265b";
+        } else {
+            corPeca = "\u2655";
         }
 
         return corPeca;

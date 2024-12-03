@@ -13,17 +13,17 @@ public class Tabuleiro {
                 int x = j;
                 int y = i;
 
-                if(i == 0 || i == 7){
+                if(y == 0 || y == 7){
 
                     Cor cor;
 
-                    if(i == 0) {
+                    if(y == 7) {
                         cor = Cor.BRANCO;
                     } else {
                         cor = Cor.PRETO;
                     }
 
-                    switch (j) {
+                    switch (x) {
                         case 0:
                         case 7:
                             Pecas torre = new Torre(cor);
@@ -61,10 +61,11 @@ public class Tabuleiro {
                     }
                 }
                 
-                if(i == 1 || i == 6) {
+                if(y == 1 || y == 6) {
+
                     Cor cor;
 
-                    if (i == 1) {
+                    if (y == 6) {
                         cor = Cor.BRANCO;
                     } else {
                         cor = Cor.PRETO;
@@ -73,15 +74,14 @@ public class Tabuleiro {
                     Pecas peao = new Peao(cor);
                     peao.setParOrdenado(x, y);
                     tabuleiro[y][x] = peao;
-                } else if (6 > i && i > 1) {
+                    
+                } else if (6 > y && y > 1) {
+
                     tabuleiro[y][x] = new Vazio();
+
                 }
-                
-
-
             }
         }
-
     }
 
     public Pecas[][] getTabuleiro() {
@@ -106,30 +106,41 @@ public class Tabuleiro {
         this.tabuleiro = tabuleiro;
     } */
 
-    public void executarMovimento(Object[] pecaEMovimento) {
+    private void verificarSobreposicao (Object[] pecaEmovimento) throws Exception {
 
-        try {
+        Pecas peca = (Pecas) pecaEmovimento[0];
+        int []  parOrdenado = (int []) pecaEmovimento[1];
 
-            Pecas pecaMovimentada = (Pecas) pecaEMovimento[0];
+        int x = parOrdenado[0];
+        int y = parOrdenado[1];
 
-            int[] parOrdenadoFinal = (int[]) pecaEMovimento[1];
-    
-            pecaMovimentada.movimentoValido(parOrdenadoFinal);
-        
-            int x = parOrdenadoFinal[0];
-            int y = parOrdenadoFinal[1];
-    
-            int [] parOrdenadoAtual = pecaMovimentada.getParOrdenado();
-            int xAtual  = parOrdenadoAtual[0];
-            int yAtual = parOrdenadoAtual[1];
-    
-            tabuleiro[y][x] = pecaMovimentada;
-    
-            tabuleiro[yAtual][xAtual] = new Vazio();
-      
-        } catch (Exception e) {
-            System.out.println(e);
+        if  (peca.getCor() == tabuleiro[y][x].getCor()) {
+            throw new Exception("Não pode sobrepor peças da mesma cor, tente novamente");
         }
+        
+    }
 
+    public void executarMovimento(Object[] pecaEMovimento) throws Exception {
+
+/*         verificarSobreposicao(pecaEMovimento);
+ */
+        Pecas pecaMovimentada = (Pecas) pecaEMovimento[0];
+
+        int[] parOrdenadoFinal = (int[]) pecaEMovimento[1];
+
+        pecaMovimentada.movimentoValido(parOrdenadoFinal);
+    
+        int x = parOrdenadoFinal[0];
+        int y = parOrdenadoFinal[1];
+
+        int [] parOrdenadoAtual = pecaMovimentada.getParOrdenado();
+        int xAtual  = parOrdenadoAtual[0];
+        int yAtual = parOrdenadoAtual[1];
+
+        tabuleiro[y][x] = pecaMovimentada;
+
+        pecaMovimentada.setParOrdenado(x, y);
+
+        tabuleiro[yAtual][xAtual] = new Vazio();
     }
 } 

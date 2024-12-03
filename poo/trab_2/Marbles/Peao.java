@@ -13,9 +13,9 @@ public class Peao extends Pecas{
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2659";
-        } else {
             corPeca = "\u265f";
+        } else {
+            corPeca = "\u2659";
         }
 
         return corPeca;
@@ -43,43 +43,35 @@ public class Peao extends Pecas{
             } else {
                 qtdCasasPermitidas = 1;
             }
-
-            switch (corPeca) {
-                case BRANCO:
                 
-                    if(xFinal == xAtual && yFinal <= yAtual-qtdCasasPermitidas) {
+            if(xFinal == xAtual) /* Essa condição não é válida nos casos onde há a eliminação de peça inimiga, revisar a lógica após
+            a implementação da mecânica de eliminar peças inimigas */ {
 
-                        valido = true;
+                System.out.println("Xfinal: "+xFinal+"\nYfinal: "+yFinal+"\nXatual: "+xAtual+"\nYatual: "+yAtual+"\ncorPeca: "+corPeca+"\nqtdCasasP: "+qtdCasasPermitidas);
 
-                    } else {
-                        throw new Exception("movimento incorreto, declare novamente");
-                    }
+                if (yFinal >= yAtual-qtdCasasPermitidas && corPeca == Cor.BRANCO) {
 
-                break;
+                    valido = true;
 
-                case PRETO:
+                } else if (yFinal <= yAtual+qtdCasasPermitidas && corPeca == Cor.PRETO) {
+                    
+                    valido = true;
 
-                    if(xFinal == xAtual && yFinal >= yAtual+qtdCasasPermitidas) {
+                } else {
+                    
+                    throw new Exception("Eixo y declarado incorretamente, declare novamente");
 
-                        valido = true;
+                }
+            } else {
 
-                    } else {
-                        throw new Exception("movimento incorreto, declare novamente");
-                    }
+                throw new Exception("Eixo x declarado incorretamente, declare novamente");
 
-                break;
-            
-                default:
-                break;
             }
 
             this.primeiroMovimento = false;
 
-        } else {
-            throw new Exception("Informe coordenadas válidas para uma matrix 8x8");
-        }
+        } 
 
         return valido;
     }
-
 }

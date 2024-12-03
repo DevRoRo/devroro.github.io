@@ -25,7 +25,12 @@ public boolean movimentoValido(int[] parOrdenado) throws Exception { /* talvez p
 
     if (x < 8 && y < 8) {
         valido = true;
+    } else {
+        throw new Exception("Informe coordenadas válidas para uma matrix 8x8");
     }
+
+    if (this.parOrdenado[0] == parOrdenado[0] && this.parOrdenado[1] == parOrdenado[1]) throw new Exception("A peça não pode se manter na mesma posição inicial, "
+    +"movimento inválido. Tente novamente");
 
     return valido;
 }

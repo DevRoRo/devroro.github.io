@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 import Marbles.Cor;
 import Marbles.Pecas;
 
 public class Main {
 
     public static void main(String []args) {
+
+        Scanner in = new Scanner(System.in);
 
         Tabuleiro jogo = new Tabuleiro();
         Pecas [][] tabuleiro = jogo.getTabuleiro();
@@ -12,25 +16,47 @@ public class Main {
 
         Jogador jogador2 = new Jogador("Vini", Cor.PRETO);
 
-        System.out.println(jogo);
+        Pecas peca;
 
-        Pecas peca = tabuleiro[6][0];
+        Object [] jogada;
 
-        Object [] jogadaJogador1 = jogador1.declararMovimento(peca, 0, 4);
-
-        jogo.executarMovimento(jogadaJogador1);
+        boolean t = true;
 
         System.out.println(jogo);
 
-        Pecas peca2 = tabuleiro[1][0];
-        
-        Object [] jogadaJogador2 = jogador2.declararMovimento(peca2, 0, 3);
-        
-        jogo.executarMovimento(jogadaJogador2);
+        while (t) {
+            System.out.println("Insira as coordenadas x e y da peça a ser selecionada");
+            int x = in.nextInt();
+            int y = in.nextInt();
 
-        System.out.println(jogo);
+            peca = tabuleiro[y][x];
 
-        /* O erro está na segunda parte da proposição lógica envolvendo o yfinal e atual */
+            System.out.println("Informe as coordenadas que a peça será movimentada para");
+
+            jogada = jogador1.declararMovimento(peca, in.nextInt(), in.nextInt());
+
+            try {
+                jogo.executarMovimento(jogada);
+            } catch (Exception e) {
+                System.out.println(e);
+                continue;
+            }
+
+            System.out.println(jogo);
+
+            System.out.println("Deseja continuar o jogo? y/n");
+
+            switch (in.next()) {
+                case "y":
+                    break;
+
+                case "n":
+                    t = false;
+                    break;
             
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -11,9 +11,9 @@ public class Cavalo extends Pecas{
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2658";
-        } else {
             corPeca = "\u265e";
+        } else {
+            corPeca = "\u2658";
         }
 
         return corPeca;

@@ -11,9 +11,9 @@ public class Torre extends Pecas {
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2656";
-        } else {
             corPeca = "\u265c";
+        } else {
+            corPeca = "\u2656";
         }
 
         return corPeca;

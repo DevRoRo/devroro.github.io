@@ -11,9 +11,9 @@ public class Rei extends Pecas {
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2654";
-        } else {
             corPeca = "\u265a";
+        } else {
+            corPeca = "\u2654";
         }
 
         return corPeca;
