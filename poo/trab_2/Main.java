@@ -33,7 +33,13 @@ public class Main {
 
             System.out.println("Informe as coordenadas que a peça será movimentada para");
 
-            jogada = jogador1.declararMovimento(peca, in.nextInt(), in.nextInt());
+            try {
+                jogada = jogador1.declararMovimento(peca, in.nextInt(), in.nextInt());
+
+            } catch (Exception e) {
+                System.out.println(e);
+                continue;
+            }
 
             try {
                 jogo.executarMovimento(jogada);

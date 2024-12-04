@@ -21,57 +21,40 @@ public class Peao extends Pecas{
         return corPeca;
     }
 
-    public boolean movimentoValido(int[] parOrdenado) throws Exception { /* Talvez não precise retornar boolean e ser void */
+    public void movimentoValido(int[] parOrdenado) throws Exception {
+
+        super.movimentoValido(parOrdenado);
+
+        int xFinal = parOrdenado[0];
+        int yFinal = parOrdenado[1];
+
+        int [] parOrdenadoAtual = this.getParOrdenado();
+        int xAtual = parOrdenadoAtual[0];
+        int yAtual = parOrdenadoAtual[1];
+
+        Cor corPeca = this.getCor();
         
-        boolean valido = false;
+        if (corPeca == Cor.BRANCO) {
 
-        if (super.movimentoValido(parOrdenado)) {
-
-            int xFinal = parOrdenado[0];
-            int yFinal = parOrdenado[1];
-
-            int [] parOrdenadoAtual = this.getParOrdenado();
-            int xAtual = parOrdenadoAtual[0];
-            int yAtual = parOrdenadoAtual[1];
-
-            Cor corPeca = this.getCor();
-
-            int qtdCasasPermitidas;
-
-            if(this.primeiroMovimento) {
-                qtdCasasPermitidas =  2;
-            } else {
-                qtdCasasPermitidas = 1;
-            }
-                
-            if(xFinal == xAtual) /* Essa condição não é válida nos casos onde há a eliminação de peça inimiga, revisar a lógica após
-            a implementação da mecânica de eliminar peças inimigas */ {
-
-                System.out.println("Xfinal: "+xFinal+"\nYfinal: "+yFinal+"\nXatual: "+xAtual+"\nYatual: "+yAtual+"\ncorPeca: "+corPeca+"\nqtdCasasP: "+qtdCasasPermitidas);
-
-                if (yFinal >= yAtual-qtdCasasPermitidas && corPeca == Cor.BRANCO) {
-
-                    valido = true;
-
-                } else if (yFinal <= yAtual+qtdCasasPermitidas && corPeca == Cor.PRETO) {
-                    
-                    valido = true;
-
-                } else {
-                    
-                    throw new Exception("Eixo y declarado incorretamente, declare novamente");
-
-                }
-            } else {
-
-                throw new Exception("Eixo x declarado incorretamente, declare novamente");
-
+            if (yFinal > yAtual) {
+                throw new Exception("Não é permitido voltar casas, tente novamente.");
+            } else if (this.primeiroMovimento && yFinal < yAtual-2) {
+                throw new Exception("Não é permitido avançar mais de duas casas na primeira jogada, tente novamente.");
+            } else if (yFinal < yAtual-1) {
+                throw new Exception("Não é permitido avançar mais de uma casa, tente novamente");
             }
 
-            this.primeiroMovimento = false;
+        } else {
 
-        } 
+            if (yFinal < yAtual) {
+                throw new Exception("Não é permitido voltar casas, tente novamente.");
+            } else if (this.primeiroMovimento && yFinal > yAtual+2) {
+                throw new Exception("Não é permitido avançar mais de duas casas na primeira jogada, tente novamente.");
+            } else if (yFinal > yAtual+1) {
+                throw new Exception("Não é permitido avançar mais de uma casa, tente novamente");
+            }
+        }
 
-        return valido;
+        this.primeiroMovimento = false;
     }
 }

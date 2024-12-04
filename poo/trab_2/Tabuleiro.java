@@ -122,8 +122,8 @@ public class Tabuleiro {
 
     public void executarMovimento(Object[] pecaEMovimento) throws Exception {
 
-/*         verificarSobreposicao(pecaEMovimento);
- */
+        verificarSobreposicao(pecaEMovimento);
+
         Pecas pecaMovimentada = (Pecas) pecaEMovimento[0];
 
         int[] parOrdenadoFinal = (int[]) pecaEMovimento[1];

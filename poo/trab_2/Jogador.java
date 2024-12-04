@@ -22,9 +22,9 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public Object[] declararMovimento (Pecas peca, int x, int y) {
+    public Object[] declararMovimento (Pecas peca, int x, int y) throws Exception {
 
-        /* Limitar a escolha da peca para a cor armanezada em time */
+        if (peca.getCor() == Cor.VAZIO || peca.getCor() != this.getTime()) throw new Exception("Declare a peça de acordo com a cor do seu time");
 
         Object[] pecaEMovimento = new Object[2];
 

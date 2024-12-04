@@ -2,5 +2,6 @@ package Marbles;
 
 public enum Cor {
     PRETO,
-    BRANCO;
+    BRANCO,
+    VAZIO;
 }
