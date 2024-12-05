@@ -2,6 +2,7 @@ package Marbles;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 =======
@@ -10,6 +11,12 @@ import Jogo.Tabuleiro;
 =======
 import Jogo.Posicao;
 import Jogo.Tabuleiro;
+=======
+import Jogo.Posicao;
+import Jogo.Tabuleiro;
+
+public abstract class Pecas {
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
 public abstract class Pecas {
 <<<<<<< HEAD
@@ -23,6 +30,7 @@ import Mesa.Tabuleiro;
 
 public abstract class Pecas {
 private Cor cor;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 private int[] parOrdenado; /* Atributo que guardará o par ordenado (x e depois y, portanto parOrdenado[0] = x e ...[1] = y)
@@ -40,6 +48,8 @@ private Cor cor;
 private Cor cor;
 /* par ordenado que registra o local atual da instância de peça no tabuleiro */
 >>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
+=======
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 private Posicao posicaoAtual;
 
 public Posicao getPosicaoAtual() {
@@ -50,6 +60,9 @@ public void setPosicaoAtual(Posicao posicaoAtual) {
     this.posicaoAtual = posicaoAtual;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
+=======
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 =======
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
@@ -66,6 +79,7 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -165,6 +179,11 @@ public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
 =======
     return valido;
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
+    
+    return true;
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 }
 
 }

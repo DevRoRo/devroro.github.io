@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Marbles.Cor;
 =======
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 =======
 import Marbles.Cor;
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 import Marbles.Pecas;
 
 public class Main {
@@ -20,6 +23,7 @@ public class Main {
 
         Tabuleiro jogo = new Tabuleiro();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -72,6 +76,13 @@ public class Main {
                 System.out.println("Turno de "+jogador.getNome());
             }
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+        System.out.println(jogo);
+
+        System.out.println("\nDigite y para jogar e n para encerrar o programa");
+
+        while (true) {
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
                     
             System.out.println("Escolha as coordenadas de uma peça e para onde deseja movê-la no seguinte formato: x y x y");
             int x = in.nextInt();
@@ -80,6 +91,7 @@ public class Main {
             int yFinal = in.nextInt();
             Pecas [][] tabuleiro = jogo.getTabuleiro();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -115,10 +127,13 @@ public class Main {
             turno++;
 
 =======
+=======
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
             jogo.executarMovimento(tabuleiro[y][x], new Posicao(xFinal, yFinal));
 
             System.out.println(jogo);
 
+<<<<<<< HEAD
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 =======
 
@@ -143,6 +158,8 @@ public class Main {
             turno++;
 
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
         }
     }
 }
