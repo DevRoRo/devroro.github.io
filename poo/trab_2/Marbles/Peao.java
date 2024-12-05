@@ -11,9 +11,9 @@ public class Peao extends Pecas{
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2659";
-        } else {
             corPeca = "\u265f";
+        } else {
+            corPeca = "\u2659";
         }
 
         return corPeca;

@@ -1,3 +1,5 @@
+package Jogo;
+
 import Marbles.*;
 
 public class Tabuleiro {
@@ -7,40 +9,56 @@ public class Tabuleiro {
     public Tabuleiro() {
         
         for (int i = 0; i < tabuleiro.length; i++) {
+
+            Pecas peca;
             
             for (int j = 0; j < tabuleiro[i].length; j++) {
 
-                if(i == 0 || i == 7){
+                int y = i;
+                int x = j;
+
+                if(y == 0 || y == 7){
 
                     Cor cor;
 
-                    if(i == 0) {
+                    if(y == 0) {
                         cor = Cor.BRANCO;
                     } else {
                         cor = Cor.PRETO;
                     }
 
-                    switch (j) {
+                    switch (x) {
                         case 0:
                         case 7:
-                            tabuleiro[i][j] = new Torre(cor);
+                            peca = new Torre(cor);
+                            peca.setPosicaoAtual(new Posicao(x, y));
+                            tabuleiro[y][x] = peca;
                             break;
 
                         case 1:
                         case 6:
-                            tabuleiro[i][j] = new Cavalo(cor);
+                            peca = new Cavalo(cor);
+                            peca.setPosicaoAtual(new Posicao(x, y));
+                            tabuleiro[y][x] = peca;
                             break;
 
                         case 2:
                         case 5:
-                            tabuleiro[i][j] = new Bispo(cor);
+                            peca = new Bispo(cor);
+                            peca.setPosicaoAtual(new Posicao(x, y));
+                            tabuleiro[y][x] = peca;
+                            
                             break;
 
                         case 3:
-                            tabuleiro[i][j] = new Rei(cor);
+                            peca = new Rei(cor);
+                            peca.setPosicaoAtual(new Posicao(x, y));
+                            tabuleiro[y][x] = peca;
                             break;
                         case 4:
-                            tabuleiro[i][j] = new Rainha(cor);
+                            peca = new Rainha(cor);
+                            peca.setPosicaoAtual(new Posicao(x, y));
+                            tabuleiro[y][x] = peca;
                             break;
                     
                         default:
@@ -48,25 +66,33 @@ public class Tabuleiro {
                     }
                 }
                 
-                if(i == 1 || i == 6) {
+                if(y == 1 || y == 6) {
                     Cor cor;
 
-                    if (i == 1) {
+                    if (y == 1) {
                         cor = Cor.BRANCO;
                     } else {
                         cor = Cor.PRETO;
                     }
 
-                    tabuleiro[i][j] = new Peao(cor);
+                    peca = new Peao(cor);
+                    peca.setPosicaoAtual(new Posicao(x, y));
+                    tabuleiro[y][x] = peca;
                 } else if (6 > i && i > 1) {
-                    tabuleiro[i][j] = new Vazio();
+                    tabuleiro[y][x] = new Vazio();
                 }
-                
-
-
             }
         }
+    }
 
+    public void executarMovimento (Pecas peca, Posicao posicao) {
+
+        this.getTabuleiro()[posicao.getY()][posicao.getX()] = peca;
+        
+        this.getTabuleiro()[peca.getPosicaoAtual().getY()][peca.getPosicaoAtual().getX()] = new Vazio();
+
+        peca.setPosicaoAtual(posicao);
+    
     }
 
     public Pecas[][] getTabuleiro() {

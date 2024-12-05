@@ -3,7 +3,7 @@ package Marbles;
 public class Vazio extends Pecas {
 
     public Vazio(){
-        super(Cor.BRANCO);
+        super(Cor.VAZIO);
     }
 
     @Override

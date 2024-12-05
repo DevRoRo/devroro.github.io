@@ -11,9 +11,9 @@ public class Bispo extends Pecas {
         String corPeca = "";
 
         if (this.getCor()==Cor.BRANCO) {
-            corPeca = "\u2657";
-        } else {
             corPeca = "\u265d";
+        } else {
+            corPeca = "\u2657";
         }
 
         return corPeca;
