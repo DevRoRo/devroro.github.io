@@ -2,7 +2,10 @@ package Jogo;
 
 import java.util.Scanner;
 
+<<<<<<< HEAD
 import Marbles.Cor;
+=======
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 import Marbles.Pecas;
 
 public class Main {
@@ -13,6 +16,7 @@ public class Main {
 
         Tabuleiro jogo = new Tabuleiro();
 
+<<<<<<< HEAD
         Jogador jogador;
 
         int turno = 1;
@@ -42,6 +46,13 @@ public class Main {
                 jogador = jogador2;
                 System.out.println("Turno de "+jogador.getNome());
             }
+=======
+        System.out.println(jogo);
+
+        System.out.println("\nDigite y para jogar e n para encerrar o programa");
+
+        while (true) {
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
                     
             System.out.println("Escolha as coordenadas de uma peça e para onde deseja movê-la no seguinte formato: x y x y");
             int x = in.nextInt();
@@ -50,6 +61,7 @@ public class Main {
             int yFinal = in.nextInt();
             Pecas [][] tabuleiro = jogo.getTabuleiro();
 
+<<<<<<< HEAD
             try {
                 jogador.validarMovimento(tabuleiro[y][x]);
                 jogo.executarMovimento(tabuleiro[y][x], new Posicao(xFinal, yFinal));
@@ -79,6 +91,12 @@ public class Main {
 
             turno++;
 
+=======
+            jogo.executarMovimento(tabuleiro[y][x], new Posicao(xFinal, yFinal));
+
+            System.out.println(jogo);
+
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
         }
     }
 }

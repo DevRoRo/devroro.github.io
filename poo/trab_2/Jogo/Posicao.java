@@ -1,7 +1,11 @@
 package Jogo;
+<<<<<<< HEAD
 /**
  * Armazena o par ordenado de posição de uma instância de Pecas
  */
+=======
+
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 public class Posicao {
     int x;
     int y;

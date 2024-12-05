@@ -1,12 +1,18 @@
 package Jogo;
 
 import Marbles.*;
+<<<<<<< HEAD
 /**
  * Classe que organiza uma instância de jogo
  */
 public class Tabuleiro {
     
     /* Array multidimensional de Pecas, emula o tabuleiro de xadrez */
+=======
+
+public class Tabuleiro {
+
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
     private Pecas[][] tabuleiro = new Pecas[8][8];
 
     public Tabuleiro() {
@@ -87,6 +93,7 @@ public class Tabuleiro {
             }
         }
     }
+<<<<<<< HEAD
     /**
      * 
      * @param peca
@@ -108,6 +115,16 @@ public class Tabuleiro {
         } else {
             throw new Exception("Movimento inválido, tente novamente.");
         }
+=======
+
+    public void executarMovimento (Pecas peca, Posicao posicao) {
+
+        this.getTabuleiro()[posicao.getY()][posicao.getX()] = peca;
+        
+        this.getTabuleiro()[peca.getPosicaoAtual().getY()][peca.getPosicaoAtual().getX()] = new Vazio();
+
+        peca.setPosicaoAtual(posicao);
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
     
     }
 
@@ -116,18 +133,26 @@ public class Tabuleiro {
     }
     
     public String toString() {
+<<<<<<< HEAD
         String ilustracaoTerminal = "   0 1 2 3 4 5 6 7  X";
         int numero = 0;
         
         for (int i = 0; i < this.tabuleiro.length; i++) {
             ilustracaoTerminal += "\n"+numero+"  ";
             numero++;
+=======
+        String ilustracaoTerminal = "";
+        
+        for (int i = 0; i < this.tabuleiro.length; i++) {
+            ilustracaoTerminal += "\n";
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
             for (int j = 0; j < tabuleiro[i].length; j++) {
                 Pecas peca = tabuleiro[i][j];
                 ilustracaoTerminal += peca.toString() + "|";
             }
         }
 
+<<<<<<< HEAD
         ilustracaoTerminal += "\n\nY";
 
         return ilustracaoTerminal;
@@ -170,6 +195,10 @@ public class Tabuleiro {
 
         return parEncerrarJogoeRainha;
     } 
+=======
+        return ilustracaoTerminal;
+    }
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
 /*     public void setTabuleiro(Pecas[][] tabuleiro) {
         this.tabuleiro = tabuleiro;
