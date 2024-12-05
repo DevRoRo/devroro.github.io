@@ -1,3 +1,6 @@
+package Mesa;
+import java.util.List;
+
 import Marbles.*;
 
 public class Tabuleiro {
@@ -128,7 +131,9 @@ public class Tabuleiro {
 
         int[] parOrdenadoFinal = (int[]) pecaEMovimento[1];
 
-        pecaMovimentada.movimentoValido(parOrdenadoFinal);
+        List<int[]> possiveisInimigos = pecaMovimentada.procurarInimigos(pecaMovimentada.getParOrdenado(), this);
+
+        pecaMovimentada.movimentoValido(parOrdenadoFinal,possiveisInimigos);
     
         int x = parOrdenadoFinal[0];
         int y = parOrdenadoFinal[1];

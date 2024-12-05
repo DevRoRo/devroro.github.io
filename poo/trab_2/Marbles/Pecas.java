@@ -1,5 +1,10 @@
 package Marbles;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Mesa.Tabuleiro;
+
 public abstract class Pecas {
 private Cor cor;
 private int[] parOrdenado; /* Atributo que guardará o par ordenado (x e depois y, portanto parOrdenado[0] = x e ...[1] = y)
@@ -17,7 +22,11 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
-public void movimentoValido(int[] parOrdenado) throws Exception {
+public List<int[]> procurarInimigos (int[] parOrdenado, Tabuleiro jogo) {
+    return new ArrayList<int[]>();
+}
+
+public void movimentoValido(int[] parOrdenado, List<int[]> possiveisInimigos) throws Exception {
 
     int x = parOrdenado[0];
     int y = parOrdenado[1];
