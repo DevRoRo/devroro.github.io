@@ -1,14 +1,33 @@
 package Marbles;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+import Jogo.Posicao;
+import Jogo.Tabuleiro;
+
+public abstract class Pecas {
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
 import Mesa.Tabuleiro;
 
 public abstract class Pecas {
 private Cor cor;
+<<<<<<< HEAD
 private int[] parOrdenado; /* Atributo que guardará o par ordenado (x e depois y, portanto parOrdenado[0] = x e ...[1] = y)
 necessário implementar método set que extraia da instância de tabuleiro a posição da instância de peças nele. */
+=======
+private Posicao posicaoAtual;
+
+public Posicao getPosicaoAtual() {
+    return posicaoAtual;
+}
+
+public void setPosicaoAtual(Posicao posicaoAtual) {
+    this.posicaoAtual = posicaoAtual;
+}
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
 public Pecas(Cor cor) {
     this.cor = cor;
@@ -22,6 +41,7 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
+<<<<<<< HEAD
 public List<int[]> procurarInimigos (int[] parOrdenado, Tabuleiro jogo) {
     return new ArrayList<int[]>();
 }
@@ -46,6 +66,11 @@ public void setParOrdenado(int x, int y) {
     parOrdenado[0] = x;
     parOrdenado[1] = y;
     this.parOrdenado = parOrdenado;
+=======
+public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
+    
+    return true;
+>>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 }
 
 }
