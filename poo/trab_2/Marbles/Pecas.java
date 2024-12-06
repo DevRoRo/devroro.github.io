@@ -131,10 +131,6 @@ public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
 
     Pecas [][] tabuleiro = jogo.getTabuleiro();
 
-    System.out.println("teste");
-    System.out.println(tabuleiro[yFinal][xFinal].getCor());
-    System.out.println(this.getCor());
-
     if (tabuleiro[yFinal][xFinal].getCor() == this.getCor()) {
         valido = false;
     }
