@@ -8,6 +8,7 @@ import Jogo.Posicao;
 import Jogo.Tabuleiro;
 
 public abstract class Pecas {
+<<<<<<< HEAD
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
 import Mesa.Tabuleiro;
@@ -18,6 +19,11 @@ private Cor cor;
 private int[] parOrdenado; /* Atributo que guardará o par ordenado (x e depois y, portanto parOrdenado[0] = x e ...[1] = y)
 necessário implementar método set que extraia da instância de tabuleiro a posição da instância de peças nele. */
 =======
+=======
+/* Armazena o Enum Cor responsável por identificar qual time pertence a peça */
+private Cor cor;
+/* par ordenado que registra o local atual da instância de peça no tabuleiro */
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
 private Posicao posicaoAtual;
 
 public Posicao getPosicaoAtual() {
@@ -41,6 +47,7 @@ public void setCor(Cor cor) {
     this.cor = cor;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 public List<int[]> procurarInimigos (int[] parOrdenado, Tabuleiro jogo) {
     return new ArrayList<int[]>();
@@ -67,6 +74,12 @@ public void setParOrdenado(int x, int y) {
     parOrdenado[1] = y;
     this.parOrdenado = parOrdenado;
 =======
+=======
+/**
+ * especifica as regras de movimentação de uma instância de peça, validando as regras gerais de movimentação
+ * para todas as classes que herdam desta.
+ */
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
 public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
     boolean valido = true;
    

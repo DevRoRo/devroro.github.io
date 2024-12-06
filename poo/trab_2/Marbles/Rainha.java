@@ -2,13 +2,18 @@ package Marbles;
 
 import Jogo.Posicao;
 import Jogo.Tabuleiro;
-
+/**
+ * Classe que herda os comportamentos da classe abstrata Pecas e determina as regras de movimento das instâncias de rainha
+ */
 public class Rainha extends Pecas {
 
     public Rainha (Cor cor) {
         super(cor);
     }
 
+    /**
+     * Através do polimorfismo, especifica as regras de movimentação de uma instância de Rainha
+     */
     public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
 
         if (super.movimentoValido(jogo, posicao)) {

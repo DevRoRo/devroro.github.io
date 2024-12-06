@@ -3,13 +3,18 @@ package Marbles;
 import Jogo.Posicao;
 import Jogo.Tabuleiro;
 
+/**
+ * Classe que herda os comportamentos da classe abstrata Pecas e determina as regras de movimento das instâncias de Cavalo
+ */
 public class Bispo extends Pecas {
 
     public Bispo (Cor cor) {
         super(cor);
     }
 
-
+    /**
+     * Através do polimorfismo, especifica as regras de movimentação de uma instância de Bispo
+     */
     public boolean movimentoValido (Tabuleiro jogo, Posicao posicao) {
         boolean valido = false;
 
