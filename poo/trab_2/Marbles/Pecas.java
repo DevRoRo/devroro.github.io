@@ -29,8 +29,29 @@ public void setCor(Cor cor) {
 }
 
 public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
+    boolean valido = true;
+   
+    int xAtual = this.getPosicaoAtual().getX();
+    int yAtual = this.getPosicaoAtual().getY(); 
+
+    int xFinal = posicao.getX();
+    int yFinal = posicao.getY();
+
+    Pecas [][] tabuleiro = jogo.getTabuleiro();
+
+    if (tabuleiro[yFinal][xFinal].getCor() == this.getCor()) {
+        valido = false;
+    }
+
+    if (xAtual == xFinal && yAtual == yFinal) {
+        valido = false;
+    }
+
+    if (xFinal >= 8 || yFinal >=8) {
+        valido = false;
+    }
     
-    return true;
+    return valido;
 }
 
 }

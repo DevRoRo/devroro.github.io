@@ -85,13 +85,19 @@ public class Tabuleiro {
         }
     }
 
-    public void executarMovimento (Pecas peca, Posicao posicao) {
+    public void executarMovimento (Pecas peca, Posicao posicao) throws Exception {
 
-        this.getTabuleiro()[posicao.getY()][posicao.getX()] = peca;
-        
-        this.getTabuleiro()[peca.getPosicaoAtual().getY()][peca.getPosicaoAtual().getX()] = new Vazio();
+        boolean movimentoEhValido = peca.movimentoValido(this, posicao);
 
-        peca.setPosicaoAtual(posicao);
+        if (movimentoEhValido) {
+            this.getTabuleiro()[posicao.getY()][posicao.getX()] = peca;
+            
+            this.getTabuleiro()[peca.getPosicaoAtual().getY()][peca.getPosicaoAtual().getX()] = new Vazio();
+
+            peca.setPosicaoAtual(posicao);
+        } else {
+            throw new Exception("Movimento inválido, tente novamente.");
+        }
     
     }
 
@@ -100,18 +106,57 @@ public class Tabuleiro {
     }
     
     public String toString() {
-        String ilustracaoTerminal = "";
+        String ilustracaoTerminal = "   0 1 2 3 4 5 6 7  X";
+        int numero = 0;
         
         for (int i = 0; i < this.tabuleiro.length; i++) {
-            ilustracaoTerminal += "\n";
+            ilustracaoTerminal += "\n"+numero+"  ";
+            numero++;
             for (int j = 0; j < tabuleiro[i].length; j++) {
                 Pecas peca = tabuleiro[i][j];
                 ilustracaoTerminal += peca.toString() + "|";
             }
         }
 
+        ilustracaoTerminal += "\n\nY";
+
         return ilustracaoTerminal;
     }
+
+    public Object [] jogoEncerrado () {
+
+        Object [] parEncerrarJogoeRainha = new Object[2];
+        boolean encerrado = false;
+        boolean temRainhaBranca = true;
+        Pecas rainhaBranca  = null;
+        Pecas rainhaPreta = null;
+        Pecas [][] tabuleiro = this.tabuleiro;
+
+        for (int y = 0; y < tabuleiro.length; y++) {
+            for (int x = 0; x < tabuleiro.length; x++) {
+                if (tabuleiro[y][x].toString() == "\u265b") {
+                    rainhaBranca = tabuleiro[y][x];
+                } 
+                
+                if (tabuleiro[y][x].toString() == "\u2655") {
+                    rainhaPreta = tabuleiro[y][x];
+                }
+            }
+        }
+
+        if(rainhaBranca == null) {
+            encerrado = true;
+            temRainhaBranca = false;
+        } else if (rainhaPreta == null) {
+            encerrado = true;
+            temRainhaBranca = true;
+        }
+
+        parEncerrarJogoeRainha[0] = encerrado;
+        parEncerrarJogoeRainha[1] = temRainhaBranca;
+
+        return parEncerrarJogoeRainha;
+    } 
 
 /*     public void setTabuleiro(Pecas[][] tabuleiro) {
         this.tabuleiro = tabuleiro;
