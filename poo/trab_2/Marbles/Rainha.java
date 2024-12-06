@@ -12,9 +12,16 @@ public class Rainha extends Pecas {
     public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
 
         if (super.movimentoValido(jogo, posicao)) {
-            if (new Bispo(this.getCor()).movimentoValido(jogo, posicao)) {
+
+            Pecas bispo = new Bispo(this.getCor());
+            bispo.setPosicaoAtual(this.getPosicaoAtual());
+
+            Pecas torre = new Torre(this.getCor());
+            torre.setPosicaoAtual(this.getPosicaoAtual());
+
+            if (bispo.movimentoValido(jogo, posicao)) {
                 return true;
-            } else if (new Torre(this.getCor()).movimentoValido(jogo, posicao)) {
+            } else if (torre.movimentoValido(jogo, posicao)) {
                 return true;
             } else {
                 return false;
