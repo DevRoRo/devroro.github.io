@@ -125,9 +125,34 @@ public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
 =======
 public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
+    boolean valido = true;
+   
+    int xAtual = this.getPosicaoAtual().getX();
+    int yAtual = this.getPosicaoAtual().getY(); 
+
+    int xFinal = posicao.getX();
+    int yFinal = posicao.getY();
+
+    Pecas [][] tabuleiro = jogo.getTabuleiro();
+
+    if (tabuleiro[yFinal][xFinal].getCor() == this.getCor()) {
+        valido = false;
+    }
+
+    if (xAtual == xFinal && yAtual == yFinal) {
+        valido = false;
+    }
+
+    if (xFinal >= 8 || yFinal >=8) {
+        valido = false;
+    }
     
+<<<<<<< HEAD
     return true;
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
+=======
+    return valido;
+>>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
 }
 
 }
