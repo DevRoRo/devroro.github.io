@@ -1,5 +1,7 @@
 package Jogo;
-
+/**
+ * Armazena o par ordenado de posição de uma instância de Pecas
+ */
 public class Posicao {
     int x;
     int y;

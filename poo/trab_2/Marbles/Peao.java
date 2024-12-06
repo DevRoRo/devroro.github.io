@@ -4,7 +4,7 @@ import Jogo.Posicao;
 import Jogo.Tabuleiro;
 
 /**
- * 
+ * Classe que herda os comportamentos da classe abstrata Pecas e determina as regras de movimento das instâncias de Peao
  */
 public class Peao extends Pecas{
 
@@ -14,7 +14,9 @@ public class Peao extends Pecas{
         super(cor);
         this.primeiroMovimento = true;
     }
-    
+    /**
+     * Através do polimorfismo, especifica as regras de movimentação de uma instância de Peao
+     */
     public boolean movimentoValido (Tabuleiro jogo, Posicao posicao) {
         
         boolean ehValido = true;

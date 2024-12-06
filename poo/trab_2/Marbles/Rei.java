@@ -3,12 +3,17 @@ package Marbles;
 import Jogo.Posicao;
 import Jogo.Tabuleiro;
 
+/**
+ * Classe que herda os comportamentos da classe abstrata Pecas e determina as regras de movimento das instâncias de Rei
+ */
 public class Rei extends Pecas {
 
     public Rei (Cor cor) {
         super(cor);
     }
-
+    /**
+     * Através do polimorfismo, especifica as regras de movimentação de uma instância de Rei
+     */
     public boolean movimentoValido (Tabuleiro jogo, Posicao posicao) {
         int xAtual = this.getPosicaoAtual().getX();
         int yAtual = this.getPosicaoAtual().getY();
