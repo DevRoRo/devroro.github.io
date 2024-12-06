@@ -4,12 +4,35 @@ import java.util.List;
 
 import Mesa.Tabuleiro;
 
+import Jogo.Posicao;
+import Jogo.Tabuleiro;
+
 public class Peao extends Pecas{
+    private boolean primeiroMovimento;
+
     private boolean primeiroMovimento;
 
     public Peao (Cor cor) {
         super(cor);
         this.primeiroMovimento = true;
+<<<<<<< HEAD
+=======
+    }
+    
+    public boolean movimentoValido (Tabuleiro jogo, Posicao posicao) {
+        boolean ehValido = true;
+        int casas;
+
+        int xAtual = this.getPosicaoAtual().getX();
+        int yAtual = this.getPosicaoAtual().getY();
+
+        int xFinal = posicao.getX();
+        int yFinal = posicao.getY();
+
+        Cor corPeca = this.getCor();
+
+        return ehValido;
+>>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
     }
     
     @Override
