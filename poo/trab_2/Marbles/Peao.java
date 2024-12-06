@@ -40,16 +40,12 @@ public class Peao extends Pecas{
             boolean direcaoValida = yFinal == yAtual + direcaoY;
 
             if (direcao) {
-                System.out.println("teste y direction");
 
                 if (direcaoValida) {
-                    System.out.println("teste yf = y+/-1");
 
                     if (xFinal == xAtual) {
-                        System.out.println("teste x = x");
                         ehValido = tabuleiro[yAtual + direcaoY][xAtual].getCor() == Cor.VAZIO;
                     } else {
-                        System.out.println("teste cor");
                         boolean isEnemyOppositeLeft = false;
                         boolean isEnemyOppositeRight = false;
                         if (xAtual == 0) {
@@ -62,9 +58,7 @@ public class Peao extends Pecas{
                         }
 
                         if (isEnemyOppositeLeft || isEnemyOppositeRight) {
-                            System.out.println("teste inimigo");
                             if (xFinal == xAtual + 1 || xFinal == xAtual - 1) {
-                                System.out.println("teste sobreposicao inimigo");
                                 ehValido = true;
                             } else {
                                 ehValido = false;
@@ -74,7 +68,6 @@ public class Peao extends Pecas{
                         }
                     }
                 } else if (primeiroMovimento) {
-                    System.out.println("teste primeiro movimento");
                     ehValido = (corAtual == Cor.PRETO) ? (yFinal >= yAtual - 2) : (yFinal <= yAtual + 2);
                 } else {
                     ehValido = false;
