@@ -2,6 +2,7 @@ package Jogo;
 
 import Marbles.*;
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Classe que organiza uma instância de jogo
  */
@@ -13,6 +14,14 @@ public class Tabuleiro {
 public class Tabuleiro {
 
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
+=======
+/**
+ * Classe que organiza uma instância de jogo
+ */
+public class Tabuleiro {
+    
+    /* Array multidimensional de Pecas, emula o tabuleiro de xadrez */
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
     private Pecas[][] tabuleiro = new Pecas[8][8];
 
     public Tabuleiro() {
@@ -94,6 +103,9 @@ public class Tabuleiro {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
     /**
      * 
      * @param peca
@@ -183,6 +195,7 @@ public class Tabuleiro {
      * responsável por realizar a leitura de presença de instâncias de rainha para declarar o jogo como encerrado e a Instância de Jogador vencedor.
      * @return
      */
+<<<<<<< HEAD
     public Object [] jogoEncerrado () {
 
         Object [] parEncerrarJogoeRainha = new Object[2];
@@ -222,6 +235,8 @@ public class Tabuleiro {
     }
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
+=======
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
     public Object [] jogoEncerrado () {
 
         Object [] parEncerrarJogoeRainha = new Object[2];

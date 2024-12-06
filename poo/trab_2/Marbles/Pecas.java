@@ -12,6 +12,7 @@ import Jogo.Posicao;
 import Jogo.Tabuleiro;
 
 public abstract class Pecas {
+<<<<<<< HEAD
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
 
 public abstract class Pecas {
@@ -34,6 +35,11 @@ private Cor cor;
 >>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
 =======
 >>>>>>> d6b59be (Tabuleiro funcional com todas as peças do jogo, método de movimentação geral das peças criado.)
+=======
+/* Armazena o Enum Cor responsável por identificar qual time pertence a peça */
+private Cor cor;
+/* par ordenado que registra o local atual da instância de peça no tabuleiro */
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
 private Posicao posicaoAtual;
 
 public Posicao getPosicaoAtual() {
@@ -63,6 +69,7 @@ public void setCor(Cor cor) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 public List<int[]> procurarInimigos (int[] parOrdenado, Tabuleiro jogo) {
     return new ArrayList<int[]>();
 }
@@ -89,10 +96,15 @@ public void setParOrdenado(int x, int y) {
     this.parOrdenado = parOrdenado;
 =======
 =======
+=======
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
 /**
  * especifica as regras de movimentação de uma instância de peça, validando as regras gerais de movimentação
  * para todas as classes que herdam desta.
  */
+<<<<<<< HEAD
+>>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
+=======
 >>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
 public boolean movimentoValido(Tabuleiro jogo, Posicao posicao) {
     boolean valido = true;
