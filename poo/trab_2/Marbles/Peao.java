@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Mesa.Tabuleiro;
 
 import Jogo.Posicao;
@@ -25,7 +26,14 @@ import Jogo.Tabuleiro;
 >>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
  */
 >>>>>>> 4e77ca7 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar, sair para além do tabuleiro, respeito as regras de cada peça, sistema de jogadores com time de peças específicos, método alternativo de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+import Jogo.Posicao;
+import Jogo.Tabuleiro;
+
+>>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
 public class Peao extends Pecas{
+    private boolean primeiroMovimento;
+
     private boolean primeiroMovimento;
 
     private boolean primeiroMovimento;
@@ -35,6 +43,7 @@ public class Peao extends Pecas{
     public Peao (Cor cor) {
         super(cor);
         this.primeiroMovimento = true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -180,6 +189,23 @@ public class Peao extends Pecas{
         } else {
             ehValido = false;
         }
+
+        return ehValido;
+>>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+    }
+    
+    public boolean movimentoValido (Tabuleiro jogo, Posicao posicao) {
+        boolean ehValido = true;
+        int casas;
+
+        int xAtual = this.getPosicaoAtual().getX();
+        int yAtual = this.getPosicaoAtual().getY();
+
+        int xFinal = posicao.getX();
+        int yFinal = posicao.getY();
+
+        Cor corPeca = this.getCor();
 
         return ehValido;
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)

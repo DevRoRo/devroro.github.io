@@ -4,6 +4,7 @@ import Marbles.Pecas;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Classe que regra a instância de Jogador, determinando qual Cor de peças que este poderá interagir e um nome para identificação
  */
@@ -14,6 +15,8 @@ import Marbles.Pecas;
  * Classe que regra a instância de Jogador, determinando qual Cor de peças que este poderá interagir e um nome para identificação
  */
 >>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
+=======
+>>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
 public class Jogador {
     private Cor time;
     private String nome;
@@ -35,6 +38,7 @@ public class Jogador {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //método responsável por identificar se a peça escolhida pertence ao time do jogador.
 =======
 
@@ -42,6 +46,9 @@ public class Jogador {
 =======
     //método responsável por identificar se a peça escolhida pertence ao time do jogador.
 >>>>>>> 659ccc9 (Documentada a finalidade das peças e dos métodos de validação de movimento.)
+=======
+
+>>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
     public void validarMovimento (Pecas peca) throws Exception {
 
         if (peca.getCor() == Cor.VAZIO || peca.getCor() != this.getTime()) throw new Exception("Declare a peça de acordo com a cor do seu time");
