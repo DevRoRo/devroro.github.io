@@ -2,8 +2,11 @@ package Marbles;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import Mesa.Tabuleiro;
 
+=======
+>>>>>>> 71ae70a4725fc2266e72b148318a004376ccbdd4
 import Jogo.Posicao;
 import Jogo.Tabuleiro;
 
@@ -15,11 +18,16 @@ public class Peao extends Pecas{
 
     private boolean primeiroMovimento;
 
+    private boolean primeiroMovimento;
+
     public Peao (Cor cor) {
         super(cor);
         this.primeiroMovimento = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 71ae70a4725fc2266e72b148318a004376ccbdd4
     }
     /**
      * Através do polimorfismo, especifica as regras de movimentação de uma instância de Peao
@@ -91,7 +99,10 @@ public class Peao extends Pecas{
         }
 
         return ehValido;
+<<<<<<< HEAD
 >>>>>>> da701e9 (Tabuleiro funcional, todas as peças devidamente geradas, movimento funcional e restringidos para sobreposição de mesma cor, manter no mesmo lugar e sair para além do tabuleiro, sistema de jogadores com time de peças específicos, método de encerrar jogo com base na presença da peça rainha e declaração de vencedor.)
+=======
+>>>>>>> 71ae70a4725fc2266e72b148318a004376ccbdd4
     }
     
     @Override
