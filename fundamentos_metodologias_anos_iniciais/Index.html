@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Fundamentos metodológicos</title>
+</head>
+<body>
+    <div class="container" id="fundo">
+        <div id="cabecalho">
+            <h2 id="subtitulo_site">Tecnologias do passado</h2>
+        </div>
+        <div id="principal">
+            <h3 id="subtitulo_principal">Você conhece esses objetos? Mostre essas imagens aos seus familiares mais velhos e eu aposto que eles saberão o que é!</h3>
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-toggle="modal" data-bs-target="#modalVHS">
+                        <img src="imgs/vhs.jpeg" class="d-block w-100" alt="vhs">
+                        <div class="carousel-caption d-block">
+                            <p>Isso é um videocassete acompanhado de fitas cassete, uma tecnologia usada para assistir filmes e séries antigamente.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalRadio">
+                        <img src="imgs/radio.jpeg" class="d-block w-100" alt="radio">
+                        <div class="carousel-caption d-block">
+                            <p>Esse é um rádio antigo, usado por gerações anteriores para ouvir música e programas de rádio.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalTelefone">
+                        <img src="imgs/telefone.jpeg" class="d-block w-100" alt="telefone">
+                        <div class="carousel-caption d-block">
+                            <p>Um telefone de disco, amplamente utilizado antes da era dos telefones celulares.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalBonde">
+                        <img src="imgs/bonde.jpeg" class="d-block w-100" alt="bonde">
+                        <div class="carousel-caption d-block">
+                            <p>Um bonde, um antigo meio de transporte urbano, popular em muitas cidades no passado.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalDatilografia">
+                        <img src="imgs/datilografia.jpeg" class="d-block w-100" alt="datilografia">
+                        <div class="carousel-caption d-block">
+                            <p>Uma máquina de datilografia, utilizada para escrever documentos antes dos computadores.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Modals -->
+            <!-- Modal for VHS -->
+            <div class="modal fade" id="modalVHS" tabindex="-1" aria-labelledby="modalVHSTitle" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalVHSTitle">Videocassete e Fitas Cassete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Isso é um videocassete acompanhado de fitas cassete. Era assim que fazíamos para assistir filmes e séries antigamente. E para que pudéssemos assistir, era preciso que esse aparelho estivesse conectado em uma televisão. As fitas poderiam ser compradas em lojas ou alugadas em locadoras de filmes por alguns dias. Seus pais ou seus avós frequentavam locadoras de filmes? 
+                            Hoje conseguimos assistir qualquer filme ou série com alguns cliques e de qualquer aparelho, seja na televisão, no celular ou no computador.
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Radio -->
+            <div class="modal fade" id="modalRadio" tabindex="-1" aria-labelledby="modalRadioTitle" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalRadioTitle">Rádio Antigo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Esse é um rádio analógico! Era assim que faziam para ouvir músicas e notícias. Pode ser considerado um meio de comunicação de massa. Hoje você pode escolher o que ouvir em um aplicativo de músicas, mas na época desse aparelhinho, você precisava esperar até que a sua música favorita tocasse em alguma estação de rádio. Converse com as pessoas mais velhas que você conhece sobre o rádio e as estações.                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Telefone -->
+            <div class="modal fade" id="modalTelefone" tabindex="-1" aria-labelledby="modalTelefoneTitle" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTelefoneTitle">Telefone de Disco</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Esse é o telefone! Um meio de comunicação individual e irmão mais velho do celular. Com o telefone só era possível fazer ligações e você precisava discar os números para quem queria fazer um telefonema. Hoje, temos todos os números dos amigos e da família armazenados nos nossos celulares. Nos dias de hoje, podemos até fazer chamadas de vídeo, enviar mensagens de texto e de voz.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Bonde -->
+            <div class="modal fade" id="modalBonde" tabindex="-1" aria-labelledby="modalBondeTitle" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBondeTitle">Bonde</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Esse é o bonde elétrico! Um meio de transporte em massa muito antigo, talvez nem seus pais tenham conhecido um desses. Funcionava através da eletricidade e andava pelos trilhos.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Datilografia -->
+            <div class="modal fade" id="modalDatilografia" tabindex="-1" aria-labelledby="modalDatilografiaTitle" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDatilografiaTitle">Máquina de Datilografia</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Essa é a máquina de datilografia! Nela era possível escrever cartas, documentos e livros. Sem tela e sem o botão de apagar, você precisava ter muita atenção ao que estava sendo escrito para não ter que jogar todo seu trabalho fora. Essa máquina necessitava de papel para que as letrinhas pudessem surgir ao serem apertadas. 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="rodape">
+            blablabla rodapé todos direitos reservados.
+        </div>
+    </div>
+</body>
+</html>
