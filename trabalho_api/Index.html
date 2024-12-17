@@ -3,52 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< HEAD
-    <script type="module" src=".main.js"></script>
-=======
-    <script type="module" src="main.js"></script>
->>>>>>> e39ecd396463625d370970c16935e0a1e97c009a
-    <title>Informações sobre países</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./main.js"></script>
+    <title>Curiosidades sobre Países</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <!-- Cabeçalho -->
-            <div class="col-12 my-4">
-                <h1>Informações sobre países</h1>
+    <header class="my-4 text-center">
+        <h1>Curiosidades sobre Países</h1>
+        <p>Navegue pelos países e descubra curiosidades interessantes!</p>
+    </header>
+    <div class="container" id="container_paises">
+            <div class="container" id="lista_paises">
+                <label for="country-list">Escolha um país</label>
+                <select name="country-list" id="country-list" class="form-select mb-3">
+                    <option value="Selecione" id="Selecione...">Selecione...</option>
+                </select>
             </div>
-        </div>
-
-        <div class="row">
-            <!-- Conteúdo -->
-            <div class="col-12">
-                <div class="row">
-                    <!-- api_paises -->
-                    <div class="col-md-6" id="api_paises">
-                        <label for="countrySelect">Escolha um país:</label>
-                        <select id="countrySelect" class="form-select">
-                            <option value="initial">Selecione um país</option>
-                        </select>
-                    </div>
-
-                    <!-- api_brasil -->
-                    <div class="col-md-6" id="api_brasil">
-                        <label for="cepInput">Informe um CEP:</label>
-                        <input type="text" id="cepInput" class="form-control" placeholder="Digite o CEP">
-                    </div>
-                </div>
+    </div>
+        <h2 id="feriado_texto" class="">Lista de feriados</h2>
+        <p id="feriado_texto">Descubra os feriados nacionais de determinado ano!</p>
+    <div class="container" id="container_apibr">
+        <div class="container" id="button">
+            <div class="mb-3" id="label_input">
+                <label for="ano" id="label_ano">Digite o ano para pesquisar os feriados</label>
+                <input type="text" id="ano" name="ano"><br>
             </div>
-        </div>
-
-        <div class="row">
-            <!-- Rodapé -->
-            <div class="col-12 mt-4 text-center">
-                <p>Ronaldo Roig - Todos os direitos reservados</p>
-            </div>
+            <button id="submit_ano" class="btn-primary w-100">Pesquisar</button>
         </div>
     </div>
-
+    <footer class="mt-4 text-center">
+        <p>Todos os direitos reservados &copy; 2024</p>
+    </footer>
 </body>
 </html>
 
