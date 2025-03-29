@@ -17,8 +17,8 @@ public class DanoCorte implements Dano {
         int defesaAtual = personagem.getDefesa();
         
         vidaAtual = vidaAtual - (this.valorDano - defesaAtual) - contadorSangramento;
-        System.out.println(personagem.getNome()+"sofreu "+(this.valorDano - defesaAtual)+" de dano");
-        System.out.println(personagem.getNome()+"sofreu "+contadorSangramento+" de dano de sangramento");
+        System.out.println(personagem.getNome()+" sofreu "+(this.valorDano - defesaAtual)+" de dano");
+        System.out.println(personagem.getNome()+" sofreu "+contadorSangramento+" de dano de sangramento");
         contadorSangramento++;
 
         personagem.setVida(vidaAtual);
