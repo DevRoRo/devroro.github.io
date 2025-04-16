@@ -80,5 +80,4 @@ public class Leiloeiro implements Subject {
         "============================";
         return string;
     }
-    
 }
