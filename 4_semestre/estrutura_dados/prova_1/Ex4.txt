@@ -1,0 +1,23 @@
+A)
+Um nome para essa função poderia ser criarOuInserirNaLDE, uma vez que essa função abrange uma série de funcionalidades encadeadas
+numa estrutura condicional. A função cria um Nó que armazena os dados de Pessoa e uma referência para o nó anterior e o próximo,
+instanciando-os inicialmente como NULL e atribuindo valores de acordo com o estado atual da LDE através da estrutura condicional. Ou seja,
+a função pode atribuir esse nó como o primeiro elemento da LDE se essa estiver vazia ou adicioná-lo na cadeia de nós de acordo com a posição
+dos atuais nós.
+
+B)
+linha 6:
+Refere-se ao teste lógico para determinar se o nó será como primeiro elemento da lista já que esta estaria vazia.
+
+linha 9:
+Teste lógico para verificar se há os mesmos dados no nó de início da lista e o nó criado pela função. Se sim,
+insere a referência de próximo nó ao nó criado pela função atual que referencia o antigo nó de início, indicando que
+o novo nó inicial da lista será o nó criado pela função.
+
+linha 13:
+Teste lógico para verificar se há os mesmos dados no nó de fim da lista e o nó criado pela função. Se sim, insere a referência
+de nó anterior ao nó criado pela funçãoatual que referencia o antigo nó de fim, indicando que o novo nó de fim será o Nó
+criado pela função.
+
+linha 17:
+Se nenhum dos testes lógicos funcionar, move todos os elementos e insere o nó criado pela função no meio da LDE.
