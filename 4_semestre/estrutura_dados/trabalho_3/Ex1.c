@@ -123,8 +123,27 @@ Tarefa* removeFim(Lde* lista) {
     
 }
 
-Tarefa removePosicao(Lde* listaPosicao, int posicao) {
-
+Tarefa* removePosicao(Lde* lista, int posicao) {
+    int i = 1;
+    
+    if(lista->primeiro == NULL) {
+        printf("Lista vazia, não há o que remover.\n");
+        return NULL;
+    } else {
+        Tarefa* atual = lista->primeiro;
+        
+        while(posicao > i ) {
+            atual = atual->proximo;
+            i++;
+        }
+        
+        atual->anterior->proximo = atual->proximo;
+        atual->proximo->anterior = atual->anterior;
+        atual->proximo = NULL;
+        atual->anterior = NULL;
+        lista->n--;
+        return atual;
+    }
 }
 
 void mostraListaDE(Lde* lista) {
@@ -141,20 +160,44 @@ void mostraListaDE(Lde* lista) {
     }
 }
 
-void mostraListaED(Lde lista) {
-
-}
-
-void apagaLista() {
-
+void apagaLista(Lde* lista) {
+    Tarefa* atual = lista->primeiro;
+    Tarefa* aux;
+    
+    while(lista->n > 0) {
+        aux = atual->proximo;
+        if(atual != NULL) {
+            atual->anterior = NULL;
+            atual->proximo = NULL;
+            free(atual);
+        }
+        atual = aux;
+        lista->n--;
+    }
 }
 
 void apagaElemento(Tarefa* tarefa) {
+
     free(tarefa);
 }
 
-void menu(Lde* lista) {
+int menu(Lde* lista) {
+    int opcao;
 
+    printf("1 - Inserir um Elemento no Início\n");
+    printf("2 - Inserir um Elemento no Fim\n");
+    printf("3 - Inserir um Elemento na Posição\n");
+    printf("4 - Remover um elemento no Início\n");
+    printf("5 - Remover um elemento no Fim\n");
+    printf("6 - Remover um elemento na Posição\n");
+    printf("7 - Mostrar Lista\n");
+    printf("8 - Apagar um Elemento da Lista\n");
+    printf("9 - Apagar a Lista\n");
+    printf("0 - Fim do Programa - Lista de Chamada\n\n");
+    printf("Selecione a opção que deseja selecionar: \n");
+    scanf("%d", &opcao);
+
+    return opcao;
 }
 
 int main() {
@@ -181,17 +224,17 @@ int main() {
     insereFim(lista, teste2);
     mostraListaDE(lista);
 
-    Tarefa* removido = removeInicio(lista);
+    printf("Removido o nó: %s\n", removeInicio(lista)->descricao);
     mostraListaDE(lista);
-    removeInicio(lista);
+    printf("Removido o nó: %s\n", removeInicio(lista)->descricao);
     mostraListaDE(lista);
-    removeInicio(lista);
+    printf("Removido o nó: %s\n", removeInicio(lista)->descricao);
     mostraListaDE(lista);
-    removeInicio(lista);
+    printf("Removido o nó: %s\n", removeInicio(lista)->descricao);
     mostraListaDE(lista);
-    removeInicio(lista);
+    printf("Removido o nó: %s\n", removeInicio(lista)->descricao);
     mostraListaDE(lista);
-    removeInicio(lista);
+    printf("Removido o nó: %s\n", removeInicio(lista)->descricao);
     mostraListaDE(lista);
 
     while(i<4){
@@ -206,4 +249,84 @@ int main() {
 
     removeFim(lista);
     mostraListaDE(lista);
+    printf("Removido o nó: %s\n", removePosicao(lista, 2)->descricao);
+    mostraListaDE(lista);
+
+    do {
+        int id, prioridade, posicao;
+        char descricao[100];
+        switch(menu(lista)) {
+            case 1:
+                printf("Insira o id da tarefa");
+                scanf("%d", &id);
+                printf("Informe a prioridade");
+                scanf("%d", &prioridade);
+                printf("Informe a descrição");
+                scanf("%s", descricao);
+
+                insereInicio(lista, criaTarefa(id, prioridade, descricao));
+                break;
+                
+            case 2:
+                printf("Insira o id da tarefa");
+                scanf("%d", &id);
+                printf("Informe a prioridade");
+                scanf("%d", &prioridade);
+                printf("Informe a descrição");
+                scanf("%s", descricao);
+
+                insereFim(lista, criaTarefa(id, prioridade, descricao));
+    
+                break;
+                
+            case 3:
+                printf("Insira o id da tarefa");
+                scanf("%d", &id);
+                printf("Informe a prioridade");
+                scanf("%d", &prioridade);
+                printf("Informe a descrição");
+                scanf("%s", descricao);
+                printf("Informe a posição a ser inserido na lista");
+                scanf("%d", &posicao);
+
+                inserePosicao(lista, criaTarefa(id, prioridade, descricao), posicao);
+    
+                break;
+                
+            case 4:
+                apagaElemento(removeInicio(lista));
+    
+                break;
+                
+            case 5:
+                apagaElemento(removeFim(lista));
+                break;
+                
+            case 6:
+                printf("Informe a posição do item a ser deletado");
+                scanf("%d", &posicao);
+                apagaElemento(removePosicao(lista, posicao));
+                break;
+                
+            case 7:
+                mostraListaDE(lista);
+                break;
+                
+            case 8:
+    
+                break;
+                
+            case 9:
+                apagaLista(lista);
+                break;
+                
+            case 0:
+    
+                break;
+                
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (1);
+
 }
