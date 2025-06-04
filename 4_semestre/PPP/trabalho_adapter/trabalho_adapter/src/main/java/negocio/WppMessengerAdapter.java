@@ -11,5 +11,4 @@ public class WppMessengerAdapter implements Messenger {
     public void enviarMensagem(String mensagem) {
         wppMessenger.enviarMsgWpp(mensagem);
     }
-    
 }

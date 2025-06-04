@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
 public class WppMessenger {
@@ -12,7 +13,7 @@ public class WppMessenger {
     private String idTelefone = "580690545137364";
     private String numeroReceptor;
     /* bearerToken é o token de acesso da API. */
-    private String bearerToken = "EAATsphzUi7oBOzjhxEDQOT1QOgxJjAZAlHNZAWZAp1y8KP7toiOdsxWJYuQk0U4q1fKEyiReIt6mODvFkN39XGUbgQKbZCjyfPSjUQioZCDoFmwfLruF66981G6n9MTMiTFTbcRntR9l9eUFCo2H2eZBWGurnj3WbeCqHa42fSD4mHHywoVIVA6r4B8YIxgWRXDX7Ch9pwIqkUGh9lSvtC2l97bOSKF3UZD";
+    private String bearerToken = "EAATsphzUi7oBOy9SadKT3Lg63P9RsVQbb7trEZCvzqpRyASEBEZBhpJQNIWQM4IbjpZClaD81AYggyLDvYsvqbO7qZAJRnv6mJnfKkVp7b9VeaaUS5alHzC2L8lZC9HDrSr2yyiLx7g2XZBHfAALIlzn6nYbMyCZAOljkp7FW4X2jdl1ZABJaSQL2fesHBhmb3krrTXS3SZACnNqEwM2ZAxjITx5xxrYJlfyBI";
 
     public WppMessenger(String numeroReceptor) {
         this. numeroReceptor = numeroReceptor;
@@ -28,6 +29,7 @@ public class WppMessenger {
                 .build();
             HttpClient http = HttpClient.newHttpClient();
             http.send(request,BodyHandlers.ofString());
+            System.out.println(request);
             System.out.println("Enviando via Whatsapp...");
             
         } catch (URISyntaxException | IOException | InterruptedException e) {

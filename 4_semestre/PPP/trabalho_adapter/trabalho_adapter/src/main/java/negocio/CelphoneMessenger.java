@@ -10,6 +10,5 @@ public class CelphoneMessenger implements Messenger {
     @Override
     public void enviarMensagem(String mensagem) {
         System.out.println("Mensagem para "+numeroReceptor+":\n"+mensagem);
-    }
-    
+    }   
 }
