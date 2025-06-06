@@ -20,16 +20,17 @@ public class ConsultaDAO {
         Connection connection = conexao.getConexao();
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, cliente.getCpf());
-        System.out.println(sql);
         ResultSet result = statement.executeQuery();
+
         if (result.next()) {
-            System.out.println(result.getString("nome"));
             statement.close();
             connection.close();
             return true;
         }
+
         statement.close();
         connection.close();
+        
         return false;
     }
 
