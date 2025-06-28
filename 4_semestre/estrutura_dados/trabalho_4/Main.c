@@ -2,20 +2,35 @@
 #include "Regras.c"
 
 void toString(Pilha* p, Pilha* p2, Pilha* p3, Pilha* p4, Pilha* p5, Pilha* p6) {
-    Pilha aux = *p;
-    Pilha aux2 = *p2;
-    Pilha aux3 = *p3;
-    Pilha aux4 = *p4;
+    Pilha aux[] = {p, p2, p3, p4};
 
-    printf("| %c |               | %c |\n\n", p5->topo->cor, p6->topo->cor);
+    if(p5 != NULL && p6 != NULL) {
+        printf("| %c |               | %c |\n\n", p5->topo->cor, p6->topo->cor);
 
-    while(aux.qtd > 0) {
+    } else if (p5 != NULL || p6 != NULL) {
+        if (p5 == NULL) {
+            printf("| %c |\n\n", p6->topo->cor);
+        } else {
+            printf("| %c |\n\n", p5->topo->cor);
+        }
+    }
+
+    for (size_t i = 0; i < 4; i++) {
+        for (size_t i = 0; i < 4; i++) {
+    
+        }
+    }
+    
+
+    /* while(aux.qtd > 0) {
         printf("    | %c | %c | %c | %c |\n", aux.topo->cor, aux2.topo->cor, aux3.topo->cor, aux4.topo->cor);
         pop(&aux);
         pop(&aux2);
         pop(&aux3);
         pop(&aux4);
-    }
+    } */
+
+    printf("\n");
 }
 
 int main() {
@@ -29,6 +44,10 @@ int main() {
     push(p6, criarArgola(' '));
 
     Pilha* pArray = criarTabuleiro();
+
+    toString(&pArray[0], &pArray[1], &pArray[2], &pArray[3], p5, p6);
+
+    movimentar(&pArray[0], p5);
 
     toString(&pArray[0], &pArray[1], &pArray[2], &pArray[3], p5, p6);
 

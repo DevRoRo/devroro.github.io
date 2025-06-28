@@ -9,8 +9,10 @@ char determinarCor(int n) {
         return  'V';
     } else if (n == 3) {
         return 'A';
-    } else {
+    } else if (n == 4) {
         return 'R';
+    } else {
+        return ' ';
     }
 }
 
@@ -20,7 +22,7 @@ int estaDuplicado(int* array, int ultimoIndex, int valor) {
         if (array[i] == valor) {
             return 1;
         }
-    }
+    }  // Jeito que o deepseek sugeriu fazer com base no código que eu fiz sozinho
 
     return 0;
 }
@@ -40,49 +42,7 @@ int* geraQuatroRandom() {
         } while (estaDuplicado(random, i, aux));
 
         random[i] = aux;
-    } // Jeito que o deepseek sugeriu fazer com base no código que eu fiz sozinho
-    
-
-/*     for (size_t i = 0; i < 4; i++) {
-
-        if (i == 0) {
-
-            random[i] = rand() % n + 1;
-
-        } else if (i == 1) {
-
-            do {
-
-                random[i] = rand() % n + 1;
-
-            } while (random[i] == random[i-1]);
-
-        } else if (i == 2) {
-
-            do {
-
-                random[i] = rand() % n + 1;
-
-            } while (random[i] == random[i-1] || random [i] == random[i-2]);
-
-        } else if (i == 3) {
-
-            do {
-
-                random[i] = rand() % n + 1;
-
-            } while (random[i] == random[i-1] || random [i] == random[i-2] || random[i] == random[i-3]);
-
-        } else {
-
-            do {
-
-                random[i] = rand() % n + 1;
-
-            } while (random[i] == random[i-1] || random [i] == random[i-2] || random[i] == random[i-3] || random[i] == random[i-4]);
-
-        }
-    }  jeito que eu fiz sozinho*/
+    }
     
     return random;
 
@@ -98,9 +58,17 @@ Pilha* criarTabuleiro() {
         random = geraQuatroRandom();
 
         for (size_t f = 0; f < 4; f++) {
-                push(&pArray[i], criarArgola(determinarCor(random[f])));
+    
+            push(&pArray[i], criarArgola(determinarCor(random[f])));
+
         }
     }
     
     return pArray;
+}
+
+void movimentar(Pilha* pilha1, Pilha* pilha2) {
+    Argola* aux = pop(pilha1);
+    push(pilha2, aux);
+    push(pilha1, criarArgola(determinarCor(5)));
 }
