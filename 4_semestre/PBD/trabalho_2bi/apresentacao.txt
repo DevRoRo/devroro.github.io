@@ -1,0 +1,21 @@
+--Pra mostrar o estoque de cada item no banco
+select nome, quantidade from estoque INNER JOIN itens_cardapio ON item_id = itens_cardapio.id;
+
+--Pra mostrar os pedidos de acordo com o status
+select listar_pedidos.id AS nrmo_pedido, nome, total, listar_pedidos.criado_em from listar_pedidos('em preparo') INNER JOIN usuarios ON usuario_id = usuarios.id;
+
+
+--Pra mostrar todos os pedidos, quem os fez, o status atual, quando foi criado e quando foi a última atualização:
+SELECT pedidos.id AS nrmo_pedido, usuarios.nome AS cliente, status_pedidos.nome AS Status, pedidos.criado_em, pedidos.atualizado_em FROM pedidos INNER JOIN status_pedidos ON status_id = status_pedidos.id INNER JOIN usuarios ON usuario_id = usuarios.id;
+
+--TESTES
+
+--Registrar pedido de cliente que não existe:
+select * from registrar_pedido(3, '[{"id": 1, "quantidade": 2}, {"id": 3, "quantidade": 1}]'::jsonb);
+
+--Registrar pedido de item que não existe:
+select * from registrar_pedido(1, criar_item_pedido_json(3, 5));
+
+--Registrar pedido de item que não possui qtd suficiente no estoque:
+select * from registrar_pedido(1, criar_item_pedido_json(1, 100));
+
