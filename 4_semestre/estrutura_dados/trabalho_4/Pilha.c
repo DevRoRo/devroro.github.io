@@ -30,14 +30,3 @@ Argola* pop(Pilha* p) {
     }
     return aux;
 }
-/* 
-void toString(Pilha* p) {
-    Pilha aux = *p;
-    char* str = malloc(100*sizeof(char));
-    int offset = 0;
-
-    while (aux.qtd > 0) {
-        printf("| %c |\n", aux.topo->cor);
-        pop(&aux);
-    }
-} */
