@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name and Age Form</title>
+</head>
+
+<body>
+    <h1>Enter Your Information</h1>
+    <form action="/form" method="POST">
+        <div>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required min="1" max="120">
+        </div>
+
+        <button type="submit">Submit Information</button>
+    </form>
+    <p>Your information is secure with us</p>
+</body>
+
+</html>

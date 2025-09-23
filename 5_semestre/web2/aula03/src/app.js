@@ -3,6 +3,8 @@ import { usersRouter } from './routes/users-routes.js';
 
 const app = express();
 
+app.use(express.urlencoded({extended: false}))
+
 app.set("view engine", "ejs")
 app.set("views", "src/views")
 
