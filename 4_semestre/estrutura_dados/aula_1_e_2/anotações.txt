@@ -1,5 +1,0 @@
-"&" lê o endereço da memória de determinada variável
-
-gcc 'codigo fonte' -o 'nome'
-
-./
