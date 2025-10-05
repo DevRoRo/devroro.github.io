@@ -19,7 +19,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="Index.html">🐟 Site placeholder</a>
+            <a href="Index.html">
+                <img src="file-removebg-preview2.png " alt="" id ="refatorarSectionNavbarIcon">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,14 +41,74 @@
             </div>
         </div>
     </nav>
+
+    <!-- ============================================= -->
+    <!-- TEMPLATE 1: The Hero Section                  -->
+    <!-- ============================================= -->
+    <section class="hero-section-modern">
+        <video playsinline autoplay muted loop class="video-bg">
+            <!-- You would replace this with a high-quality video of the ocean, fishing, or your products -->
+            <source src="https://v.ftcdn.net/02/51/15/70/700_F_251157091_eGOsasBGTr9q8R4r36lSP4edFxFGnY5I_ST.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="display-3">Peixe é Pescal!</h1>
+            <p class="lead col-lg-8 mx-auto">Experience unparalleled freshness, from the pristine waters of Brazil to your
+                table.</p>
+            <a href="products.html" class="btn btn-outline-light btn-lg mt-3">Conheça nosso catálogo</a>
+        </div>
+        <a href="#features" class="scroll-down text-white"><i class="bi bi-arrow-down-circle"></i></a>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- TEMPLATE 2: The Features Section              -->
+    <!-- ============================================= -->
+    <section class="section-padding" id="refatorarSectionFeatures">
+        <div class="container text-center">
+            <h2 class="mb-4">Por que escolher a Pescal?</h2>
+            <p class="lead mb-5 col-lg-7 mx-auto">83 Anos de tradição e qualidade em pescados</p>
+            <div class="row">
+                <!-- Feature 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card h-100">
+                        <i class="bi bi-shield-check feature-icon mb-3"></i>
+                        <h5 class="mb-3">Tradição</h5>
+                        <p>A Pescal é uma empresa de tradição que há anos conquista a confiança de clientes e consumidores graças a um trabalho
+                        sério, focado na qualidade de produtos e serviços para satisfazer os mais altos padrões de exigências.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card h-100">
+                        <i class="bi bi-globe-americas feature-icon mb-3"></i>
+                        <h5 class="mb-3">Excelência</h5>
+                        <p>novadora no uso da tecnologia do frio na indústria do pescado, a Pescal foi a primeira a comercializar produtos
+                            congelados ao público do Brasil. A empresa também desenvolveu, ao longo dos anos, um trabalho com a indústria
+                            pesqueira,
+                            através da permanente atualização das técnicas de pesca tanto artesanal quanto de alto mar.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card h-100">
+                        <i class="bi bi-truck feature-icon mb-3"></i>
+                        <h5 class="mb-3">Qualidade</h5>
+                        <p>Nossas instalações e equipamentos proporcionam maior segurança e qualidade na manipulação, congelamento, embalagem e
+                            armazenamento dos produtos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <header class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+<!--     <header class="hero-section text-white text-center d-flex align-items-center justify-content-center">
         <div class="container">
             <h1 class="display-3 hero-title">Lorem ipsum</h1>
             <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             <a href="products.html" class="btn btn-light btn-lg mt-3">Explore Our products</a>
         </div>
-    </header>
+    </header> -->
     
     <footer id="contact" class="bg-dark text-white text-center py-4">
         <div class="container">
@@ -56,5 +118,6 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* --- General Styling & Variables --- */
 :root {
-    --primary-color: #0a4d68;
+    --primary-color: #005fae;
     /* A deep ocean blue */
     --secondary-color: #f8f9fa;
     /* Off-white for light backgrounds */
@@ -174,3 +174,102 @@ body {
         left: 18px;
     }
 }
+
+    /* --- 1. HERO SECTION STYLES --- */
+    .hero-section-modern {
+        position: relative;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    .hero-section-modern .video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        z-index: -2;
+    }
+
+    .hero-section-modern .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 26, 44, 0.6);
+        z-index: -1;
+    }
+
+    .hero-section-modern h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .hero-section-modern .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+    }
+
+        /* --- 2. FEATURES SECTION STYLES --- */
+        .feature-card {
+            border: none;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+    
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+    
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+    #refatorarSectionPeixesCSS {
+        padding-top: 6%;
+    }
+
+    #refatorarSectionNavbarIcon {
+        width: 15%;
+        height: 15%;
+    }
+
+    #refatorarSectionFeatures {
+        padding-top: 2%;
+        padding-bottom: 0%;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-20px);
+        }
+
+        60% {
+            transform: translateY(-10px);
+        }
+    }

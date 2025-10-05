@@ -21,41 +21,144 @@
 </head>
 
 <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <a href="Index.html">
+                    <img src="file-removebg-preview2.png " alt="" id="refatorarSectionNavbarIcon">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Our Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <section class="section-padding product-showcase-asymm">
         <div class="container">
-            <a class="navbar-brand" href="Index.html">🐟 Site placeholder</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Our Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
+            <div class="text-center" id="refatorarSectionPeixesCSS">
+                <h2 class="mb-4">Our Signature Catch</h2>
+                <p class="lead mb-5 col-lg-7 mx-auto">Discover the stories behind our most celebrated selections.</p>
+            </div>
+    
+            <!-- Product 1 (Visible) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <img src="https://pescal.com.br/images/pescada.png" class="img-fluid" alt="Pescada">
+                </div>
+                <div class="col-md-6">
+                    <div class="product-text p-4">
+                        <h3>Pescada</h3>
+                        <p class="text-muted">Sourced from the cold, clear waters off the coast, our Pescada is renowned for
+                            its rich flavor and buttery texture. It's the centerpiece your finest meals deserve.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Product 2 (Visible) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 order-md-2">
+                    <img src="https://pescal.com.br/images/anchova.png" class="img-fluid" alt="Anchova">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="product-text p-4">
+                        <h3>Anchova</h3>
+                        <p class="text-muted">Harvested by local day boats to ensure peak freshness, our Anchova is sweet,
+                            tender, and has a delightful melt-in-your-mouth quality. Perfect for searing.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Product 3 (Visible) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <img src="https://pescal.com.br/images/pescada.png" class="img-fluid" alt="Pescada">
+                </div>
+                <div class="col-md-6">
+                    <div class="product-text p-4">
+                        <h3>Pescada</h3>
+                        <p class="text-muted">Sourced from the cold, clear waters off the coast, our Pescada is renowned for
+                            its rich flavor and buttery texture. It's the centerpiece your finest meals deserve.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- This is the container for the button that will be hidden after click -->
+            <div class="text-center" id="showMoreContainer">
+                <button id="showMoreBtn" type="button" class="btn btn-outline-primary">Show More...</button>
+            </div>
+    
+            <!-- This is the container for the products that will be revealed -->
+            <div id="hiddenProducts" class="d-none">
+    
+                <!-- Product 4 (Initially Hidden) -->
+                <div class="row align-items-center mt-5 mb-5">
+                    <div class="col-md-6 order-md-2">
+                        <img src="https://pescal.com.br/images/anchova.png" class="img-fluid" alt="Anchova">
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="product-text p-4">
+                            <h3>Anchova</h3>
+                            <p class="text-muted">Harvested by local day boats to ensure peak freshness, our Anchova is
+                                sweet, tender, and has a delightful melt-in-your-mouth quality. Perfect for searing.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Product 5 (Initially Hidden) -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-6">
+                        <img src="https://pescal.com.br/images/pescada.png" class="img-fluid" alt="Pescada">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product-text p-4">
+                            <h3>Pescada</h3>
+                            <p class="text-muted">Sourced from the cold, clear waters off the coast, our Pescada is renowned
+                                for its rich flavor and buttery texture. It's the centerpiece your finest meals deserve.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Product 6 (Initially Hidden) -->
+                <div class="row align-items-center">
+                    <div class="col-md-6 order-md-2">
+                        <img src="https://pescal.com.br/images/anchova.png" class="img-fluid" alt="Anchova">
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="product-text p-4">
+                            <h3>Anchova</h3>
+                            <p class="text-muted">Harvested by local day boats to ensure peak freshness, our Anchova is
+                                sweet, tender, and has a delightful melt-in-your-mouth quality. Perfect for searing.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
     <section id="products" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5 section-title">Our products</h2>
+            <h2 class="text-center mb-5 section-title">Nossos processos</h2>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 product-card">
-                        <img src="https://as2.ftcdn.net/v2/jpg/03/14/68/67/1000_F_314686744_dvRiiXuRg6b9EIA1a4wzadc8xEwFYi82.jpg"
-                            class="img-fluid" alt="Wild Salmon">
+                        <img src="https://www.sf.technology/fish/22719d256d62c7c8016da7393a650056.jpg?v=98"
+                            class="img-fluid img-thumbnail" alt="Wild Salmon">
                         <div class="card-body">
-                            <h5 class="card-title">Wild Atlantic Salmon</h5>
-                            <p class="card-text">Rich in flavor and Omega-3s. Perfect for grilling or baking.</p>
+                            <h5 class="card-title">IQF</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil</p>
                         </div>
                         <div class="card-footer">
                             <button type ="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -66,12 +169,11 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 product-card">
-                        <img src="https://as2.ftcdn.net/v2/jpg/03/14/68/67/1000_F_314686744_dvRiiXuRg6b9EIA1a4wzadc8xEwFYi82.jpg"
-                            class="img-fluid" alt="Jumbo Shrimp">
+                        <img src="https://foodsafetybrazil.org/wp-content/uploads/2021/05/106_0012-scaled.jpg"
+                            class="img-fluid img-thumbnail" alt="Jumbo Shrimp">
                         <div class="card-body">
-                            <h5 class="card-title">Jumbo Shrimp</h5>
-                            <p class="card-text">Sweet, firm, and ready for your favorite scampi or cocktail recipe.
-                            </p>
+                            <h5 class="card-title">Eviscerado</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil</p>
                         </div>
                         <div class="card-footer">
                             <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -82,10 +184,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 product-card">
-                        <img src="https://as2.ftcdn.net/v2/jpg/03/14/68/67/1000_F_314686744_dvRiiXuRg6b9EIA1a4wzadc8xEwFYi82.jpg"
-                            class="img-fluid" alt="Sea Scallops">
+                        <img src="https://piauihoje.com/uploads/imagens/20200928044949-1200-675-peixe-congelado%7C1601339724.jpg"
+                            class="img-fluid img-thumbnail height:" alt="Sea Scallops">
                         <div class="card-body">
-                            <h5 class="card-title">Fresh Sea Scallops</h5>
+                            <h5 class="card-title">Inteiro congelado</h5>
                             <p class="card-text">Delicate and sweet, ideal for searing to a perfect golden-brown.
                             </p>
                         </div>
@@ -131,5 +233,27 @@
             </div>
         </div>
     </div>
+
+        <!-- Custom JavaScript for the "Show More" functionality -->
+        <script>
+            // Wait for the document to be fully loaded
+            document.addEventListener('DOMContentLoaded', function () {
+
+                // Get references to the button and the containers
+                const showMoreBtn = document.getElementById('showMoreBtn');
+                const showMoreContainer = document.getElementById('showMoreContainer');
+                const hiddenProducts = document.getElementById('hiddenProducts');
+
+                // Add a click event listener to the button
+                showMoreBtn.addEventListener('click', function () {
+
+                    // Remove the 'd-none' class to make the hidden products visible
+                    hiddenProducts.classList.remove('d-none');
+
+                    // Hide the button's container so the button disappears
+                    showMoreContainer.style.display = 'none';
+                });
+            });
+        </script>
 
 </body>
