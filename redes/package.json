@@ -1,0 +1,14 @@
+{
+  "name": "battle-quiz",
+  "version": "1.0.0",
+  "description": "Jogo Battle Quiz - Duelo de Conhecimento em Rede",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "server": "node app.js",
+    "client": "node client.js"
+  },
+  "keywords": ["quiz", "game", "udp", "socket", "network"],
+  "author": "",
+  "license": "ISC"
+}
